@@ -8,7 +8,7 @@ from PIL import Image
 
 REPO = os.path.expanduser("~/workspace/bloomverse-twilight")
 SRC = os.path.expanduser("~/workspace/bloomverse-twilight-art-src")
-DST = os.path.join(REPO, "assets", "atlases")
+DST = os.path.join(REPO, "public", "assets", "atlases")
 MAX = 2048
 PAD = 4
 
@@ -19,7 +19,10 @@ GROUPS = {
              + [f"hybrid_{i}.png" for i in range(1, 9)]
              + ["spirit-moss-keeper.png", "spirit-dusk-moth.png",
                 "spirit-star-wisp.png", "spirit-bramble.png",
-                "spirit-ember-wisp.png", "spirit-nightchoir.png"], 384),
+                "spirit-ember-wisp.png", "spirit-nightchoir.png",
+                "spirit-thorn.png", "spirit-crystal-wisp.png",
+                "spirit-mooncap-elder.png", "spirit-petal-dancer.png",
+                "spirit-root-guardian.png", "spirit-gloom-batling.png"], 384),
     "ui": (["tile-withered.png", "tile-parchment.png", "wish-pod.png",
             "star-pot.png", "icon-moondew.png", "icon-stardust.png",
             "icon-renown.png", "icon-gear.png", "panel-parchment.png",
@@ -27,7 +30,14 @@ GROUPS = {
             "pill-label.png", "divider-flourish.png", "icon-sleeping-moon.png",
             "coach-hand.png", "frame-spirit-card.png", "track-starchart.png",
             "fx-gold-burst.png", "ornament-corner.png", "tex-parchment.png",
-            "tex-umbral.png", "tex-nightteal.png", "tex-moss.png"], 768),
+            "tex-umbral.png", "tex-nightteal.png", "tex-moss.png",
+            "blessing-sunrise.png", "blessing-rain.png", "blessing-moon.png",
+            "blessing-star.png", "blessing-leaf.png", "blessing-crystal.png",
+            "blessing-moth.png", "blessing-heart.png",
+            "medal-bronze.png", "medal-silver.png", "medal-gold.png",
+            "medal-star-prestige.png",
+            "pot-clay.png", "pot-star.png", "pot-astral.png",
+            "withered-heart.png", "charm-raincaller.png", "moth-moon.png"], 768),
 }
 
 

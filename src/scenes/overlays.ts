@@ -48,11 +48,13 @@ export function openWishBoard(scene: Phaser.Scene, onClaimed: Refresh): void {
   const { root, close } = shell(scene, 640, Math.min(980, h * 0.86));
   titleText(scene, cx, h / 2 - Math.min(980, h * 0.86) / 2 + 64, 'WISH BOARD', 44);
   const bless = blessingFor(d, s.dayIndex);
-  const blessT = scene.add.text(cx, h / 2 - Math.min(980, h * 0.86) / 2 + 108,
+  const blessT = scene.add.text(cx + 30, h / 2 - Math.min(980, h * 0.86) / 2 + 108,
     `✦ ${bless.name}: ${bless.desc}`, {
       fontFamily: F_BODY, fontSize: '22px', color: '#B9A7E6',
     }).setOrigin(0.5);
-  root.add(blessT);
+  const blessIcon = img(scene, bless.icon).setDisplaySize(54, 54);
+  blessIcon.setPosition(cx - 250, h / 2 - Math.min(980, h * 0.86) / 2 + 108);
+  root.add([blessT, blessIcon]);
 
   wishes.forEach((w: WishDef, slot: number) => {
     const y = h / 2 - 240 + slot * 290;

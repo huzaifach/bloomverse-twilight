@@ -104,7 +104,7 @@
     },
     {
       "id": "wish_007",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "Patience, little one. Even moonlight takes its time.",
       "requires": [
         {
@@ -121,7 +121,7 @@
     },
     {
       "id": "wish_008",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "I dreamed your garden last night. It was purple. Bring purple.",
       "requires": [
         {
@@ -138,7 +138,7 @@
     },
     {
       "id": "wish_009",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "I raced a comet once. I won. Anyway, petals please!",
       "requires": [
         {
@@ -155,8 +155,8 @@
     },
     {
       "id": "wish_010",
-      "spirit": "spirit-bramble",
-      "text": "I do not do ‘cozy’. I do trades. Bring the plants.",
+      "spirit": "spirit-petal-dancer",
+      "text": "I do not do \u2018cozy\u2019. I do trades. Bring the plants.",
       "requires": [
         {
           "plant": "prism_t2",
@@ -172,7 +172,7 @@
     },
     {
       "id": "wish_011",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "I have burned low for a hundred years. Your garden keeps me warm.",
       "requires": [
         {
@@ -189,7 +189,7 @@
     },
     {
       "id": "wish_012",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Laaa... your wish joins our round. Do you hear it?",
       "requires": [
         {
@@ -308,7 +308,7 @@
     },
     {
       "id": "wish_019",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "Bring me what I ask, and I will tell you a root-secret.",
       "requires": [
         {
@@ -325,7 +325,7 @@
     },
     {
       "id": "wish_020",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "My wings are dusty with stardust. Yours could be too.",
       "requires": [
         {
@@ -342,8 +342,8 @@
     },
     {
       "id": "wish_021",
-      "spirit": "spirit-star-wisp",
-      "text": "I can hold my breath for a whole meteor shower. Watch—",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I can hold my breath for a whole meteor shower. Watch\u2014",
       "requires": [
         {
           "plant": "sylvani_t3",
@@ -359,7 +359,7 @@
     },
     {
       "id": "wish_022",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "You again. Good. I was getting bored of the quiet.",
       "requires": [
         {
@@ -376,7 +376,7 @@
     },
     {
       "id": "wish_023",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Bring me something lovely, and I will glow a little brighter.",
       "requires": [
         {
@@ -393,8 +393,8 @@
     },
     {
       "id": "wish_024",
-      "spirit": "spirit-nightchoir",
-      "text": "The night blooms when we sing. Sing with us— bring flowers.",
+      "spirit": "spirit-gloom-batling",
+      "text": "The night blooms when we sing. Sing with us\u2014 bring flowers.",
       "requires": [
         {
           "plant": "prism_t3",
@@ -512,7 +512,7 @@
     },
     {
       "id": "wish_031",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "A garden is just a promise you keep watering.",
       "requires": [
         {
@@ -529,7 +529,7 @@
     },
     {
       "id": "wish_032",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "I collect dusk in my pockets. Trade you some for petals.",
       "requires": [
         {
@@ -546,7 +546,7 @@
     },
     {
       "id": "wish_033",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "Faster! Merge faster! The sky is waiting!",
       "requires": [
         {
@@ -563,7 +563,7 @@
     },
     {
       "id": "wish_034",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "Do not mistake my grumbling for dislike. It is just... grumbling.",
       "requires": [
         {
@@ -580,7 +580,7 @@
     },
     {
       "id": "wish_035",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Do not worry about me. Worry about your watering schedule.",
       "requires": [
         {
@@ -597,7 +597,7 @@
     },
     {
       "id": "wish_036",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Hush now. The verse is beginning. Your offering is the chorus.",
       "requires": [
         {
@@ -716,7 +716,7 @@
     },
     {
       "id": "wish_043",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "Do not rush the bloom. The bloom knows when.",
       "requires": [
         {
@@ -737,7 +737,7 @@
     },
     {
       "id": "wish_044",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "The moon asked about you. I said you were doing fine.",
       "requires": [
         {
@@ -758,7 +758,7 @@
     },
     {
       "id": "wish_045",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "Did you know my sparkle is 100% organic? It is now.",
       "requires": [
         {
@@ -779,7 +779,7 @@
     },
     {
       "id": "wish_046",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "I guarded this grove before you were a seedling. Respect.",
       "requires": [
         {
@@ -800,7 +800,7 @@
     },
     {
       "id": "wish_047",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Your wish is safe with me. I keep them all, glowing.",
       "requires": [
         {
@@ -821,7 +821,7 @@
     },
     {
       "id": "wish_048",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "A wish in harmony is worth ten alone. Bring us yours.",
       "requires": [
         {
@@ -968,7 +968,7 @@
     },
     {
       "id": "wish_055",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "Every weed you pulled taught the soil something. Thank you.",
       "requires": [
         {
@@ -989,7 +989,7 @@
     },
     {
       "id": "wish_056",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "I flew over your grove at dusk. Lovely. Needs more velvet.",
       "requires": [
         {
@@ -1010,7 +1010,7 @@
     },
     {
       "id": "wish_057",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "I blinked and your fern grew! Do it again!",
       "requires": [
         {
@@ -1031,7 +1031,7 @@
     },
     {
       "id": "wish_058",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "Hurry up. My patience has thorns too.",
       "requires": [
         {
@@ -1052,7 +1052,7 @@
     },
     {
       "id": "wish_059",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "I hum old fire-songs when no one listens. You may listen.",
       "requires": [
         {
@@ -1073,7 +1073,7 @@
     },
     {
       "id": "wish_060",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Minor key tonight. Bring something to cheer the basses.",
       "requires": [
         {
@@ -1200,7 +1200,7 @@
     },
     {
       "id": "wish_067",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "You plant with your hands. I plant with centuries.",
       "requires": [
         {
@@ -1217,7 +1217,7 @@
     },
     {
       "id": "wish_068",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "The dark is not empty, you know. It is full of almost-flowers.",
       "requires": [
         {
@@ -1238,7 +1238,7 @@
     },
     {
       "id": "wish_069",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "Zoom! That is the sound of me delivering your reward.",
       "requires": [
         {
@@ -1255,7 +1255,7 @@
     },
     {
       "id": "wish_070",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "Bring me the strong ones. The weak ones I... also accept. Quietly.",
       "requires": [
         {
@@ -1272,7 +1272,7 @@
     },
     {
       "id": "wish_071",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Small flame, big promises. That has always been me.",
       "requires": [
         {
@@ -1289,7 +1289,7 @@
     },
     {
       "id": "wish_072",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "We traded verses with the wind. It wants a cutting too.",
       "requires": [
         {
@@ -1416,7 +1416,7 @@
     },
     {
       "id": "wish_079",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "I counted your merges last night. Impressive, for a mayfly.",
       "requires": [
         {
@@ -1433,7 +1433,7 @@
     },
     {
       "id": "wish_080",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "I nap through noon. Twilight is my morning. Good morning.",
       "requires": [
         {
@@ -1454,7 +1454,7 @@
     },
     {
       "id": "wish_081",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "Count the stars with me later. First, the offering!",
       "requires": [
         {
@@ -1471,7 +1471,7 @@
     },
     {
       "id": "wish_082",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "I will trade fair. My bark is worse than my bite. Usually.",
       "requires": [
         {
@@ -1488,7 +1488,7 @@
     },
     {
       "id": "wish_083",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Gently, gently. Even wishes can singe if rushed.",
       "requires": [
         {
@@ -1505,7 +1505,7 @@
     },
     {
       "id": "wish_084",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Every petal is a note. Bring us a whole symphony.",
       "requires": [
         {
@@ -1632,7 +1632,7 @@
     },
     {
       "id": "wish_091",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "Old as I am, your garden still surprises me.",
       "requires": [
         {
@@ -1649,7 +1649,7 @@
     },
     {
       "id": "wish_092",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "Softly now. The petals bruise if you wish too loudly.",
       "requires": [
         {
@@ -1666,8 +1666,8 @@
     },
     {
       "id": "wish_093",
-      "spirit": "spirit-star-wisp",
-      "text": "I dared the moon to a staring contest. Bring snacks— I mean, blooms.",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I dared the moon to a staring contest. Bring snacks\u2014 I mean, blooms.",
       "requires": [
         {
           "plant": "hybrid_4",
@@ -1683,7 +1683,7 @@
     },
     {
       "id": "wish_094",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "Stop smiling. It is... fine. Keep smiling.",
       "requires": [
         {
@@ -1700,7 +1700,7 @@
     },
     {
       "id": "wish_095",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "Keep me near your heart, gardener, and I will keep you warm.",
       "requires": [
         {
@@ -1717,7 +1717,7 @@
     },
     {
       "id": "wish_096",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Round and round the wish goes. Where it stops, we bloom.",
       "requires": [
         {
@@ -1844,7 +1844,7 @@
     },
     {
       "id": "wish_103",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "I remember when this haven was one sad seed. Look at it now.",
       "requires": [
         {
@@ -1861,8 +1861,8 @@
     },
     {
       "id": "wish_104",
-      "spirit": "spirit-dusk-moth",
-      "text": "Dusk is the garden’s eyelid, closing. Beautiful, no?",
+      "spirit": "spirit-crystal-wisp",
+      "text": "Dusk is the garden\u2019s eyelid, closing. Beautiful, no?",
       "requires": [
         {
           "plant": "astral_t6",
@@ -1878,7 +1878,7 @@
     },
     {
       "id": "wish_105",
-      "spirit": "spirit-star-wisp",
+      "spirit": "spirit-mooncap-elder",
       "text": "Wheee! Another one! You are on a roll, gardener!",
       "requires": [
         {
@@ -1899,8 +1899,8 @@
     },
     {
       "id": "wish_106",
-      "spirit": "spirit-bramble",
-      "text": "A bramble’s promise is root-deep. I will keep mine.",
+      "spirit": "spirit-petal-dancer",
+      "text": "A bramble\u2019s promise is root-deep. I will keep mine.",
       "requires": [
         {
           "plant": "prism_t6",
@@ -1916,7 +1916,7 @@
     },
     {
       "id": "wish_107",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "I am not much, but I am yours. That is enough.",
       "requires": [
         {
@@ -1933,7 +1933,7 @@
     },
     {
       "id": "wish_108",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Encore! Encore! The garden demands another wish!",
       "requires": [
         {
@@ -2064,7 +2064,7 @@
     },
     {
       "id": "wish_115",
-      "spirit": "spirit-moss-keeper",
+      "spirit": "spirit-thorn",
       "text": "One more wish, and I shall nap for a hundred years. Make it good.",
       "requires": [
         {
@@ -2081,7 +2081,7 @@
     },
     {
       "id": "wish_116",
-      "spirit": "spirit-dusk-moth",
+      "spirit": "spirit-crystal-wisp",
       "text": "Last wish of the evening? Make it a velvet one.",
       "requires": [
         {
@@ -2098,8 +2098,8 @@
     },
     {
       "id": "wish_117",
-      "spirit": "spirit-star-wisp",
-      "text": "Okay okay okay— one more wish and then I nap. MAYBE.",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Okay okay okay\u2014 one more wish and then I nap. MAYBE.",
       "requires": [
         {
           "plant": "hybrid_5",
@@ -2119,7 +2119,7 @@
     },
     {
       "id": "wish_118",
-      "spirit": "spirit-bramble",
+      "spirit": "spirit-petal-dancer",
       "text": "Last one. Make it count, soft-heart.",
       "requires": [
         {
@@ -2136,7 +2136,7 @@
     },
     {
       "id": "wish_119",
-      "spirit": "spirit-ember-wisp",
+      "spirit": "spirit-root-guardian",
       "text": "One last glow, one last wish. Make it a warm one.",
       "requires": [
         {
@@ -2153,7 +2153,7 @@
     },
     {
       "id": "wish_120",
-      "spirit": "spirit-nightchoir",
+      "spirit": "spirit-gloom-batling",
       "text": "Final verse, gardener. Make it bloom.",
       "requires": [
         {

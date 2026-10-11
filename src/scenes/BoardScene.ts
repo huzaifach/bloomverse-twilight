@@ -14,6 +14,7 @@ interface CellView {
   top: Phaser.GameObjects.Image;
   side: Phaser.GameObjects.Image;
   plant: Phaser.GameObjects.Image | null;
+  heart: Phaser.GameObjects.Image;
   kind: 'empty' | 'plant' | 'withered';
   plantId: string | null;
 }
@@ -121,9 +122,12 @@ export class BoardScene extends Phaser.Scene {
         .setDisplaySize(this.tile * 0.96, this.tile * 0.96);
       const shadow = this.add.ellipse(0, this.tile * 0.44, this.tile * 0.8,
         this.tile * 0.2, 0x000000, 0.25);
-      root.add([shadow, side, top]);
+      const heart = img(this, 'withered-heart.png')
+        .setDisplaySize(this.tile * 0.5, this.tile * 0.5)
+        .setPosition(0, -this.tile * 0.05).setVisible(false);
+      root.add([shadow, side, top, heart]);
       root.setSize(this.tile, this.tile);
-      this.cells.push({ root, top, side, plant: null, kind: 'empty', plantId: null });
+      this.cells.push({ root, top, side, plant: null, heart, kind: 'empty', plantId: null });
     }
   }
 
@@ -328,6 +332,8 @@ export class BoardScene extends Phaser.Scene {
       const plantId = c && c.kind === 'plant' ? c.plant : null;
       v.top.setTexture(atlasFor(kind === 'withered' ? 'tile-withered.png' : 'tile-parchment.png'),
         kind === 'withered' ? 'tile-withered.png' : 'tile-parchment.png');
+      v.heart.setVisible(kind === 'withered');
+      v.kind = kind;
       if (v.plant && plantId === v.plantId) return;
       v.plant?.destroy();
       v.plant = null;

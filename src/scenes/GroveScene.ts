@@ -56,7 +56,8 @@ export class GroveScene extends Phaser.Scene {
           cont.add([lock, lb]);
           continue;
         }
-        const potImg = img(this, 'star-pot.png')
+        const potFrame = r === 0 ? 'pot-star.png' : 'pot-astral.png';
+        const potImg = img(this, potFrame)
           .setDisplaySize(pw * 0.72, pw * 0.72);
         if (r === 1) potImg.setAlpha(0.85).setScale(0.85);
         cont.add(potImg);
@@ -157,10 +158,15 @@ export class GroveScene extends Phaser.Scene {
   private buildUpgrades(w: number, h: number, cx: number): void {
     const d = data(), s = state();
     const y0 = h * 0.84;
+    const UPGRADE_ICON: Record<string, string> = {
+      raincaller: 'charm-raincaller.png', moths: 'moth-moon.png', starpots: 'star-pot.png',
+    };
     d.upgrades.forEach((line, i) => {
       const y = y0 + i * 96;
       const lvl = s.grove.upgrades[line.id] ?? 0;
-      const nm = this.add.text(24, y, line.name, {
+      const ic = img(this, UPGRADE_ICON[line.id] ?? 'star-pot.png').setDisplaySize(56, 56);
+      ic.setPosition(52, y);
+      const nm = this.add.text(90, y, line.name, {
         fontFamily: F_UI, fontSize: '26px', color: '#F5E6C8', fontStyle: '800',
       }).setOrigin(0, 0.5);
       this.add.existing(levelPips(this, 330, y + 26, lvl, 10));

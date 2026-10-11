@@ -1,1 +1,76 @@
-{"spirits":[{"art":"spirit-moss-keeper.png","id":"spirit-moss-keeper","line":"An ancient gardener spirit who remembers every seed ever planted in the Haven.","name":"The Moss Keeper"},{"art":"spirit-dusk-moth.png","id":"spirit-dusk-moth","line":"A sleepy moth spirit who trades in twilight secrets and naps through noon.","name":"The Dusk Moth"},{"art":"spirit-star-wisp.png","id":"spirit-star-wisp","line":"A bright young spark who fell off the constellation map and never climbed back.","name":"The Star Wisp"},{"art":"spirit-bramble.png","id":"spirit-bramble","line":"A gruff thorn spirit with bark worse than his bite and a soft spot for underdogs.","name":"Bramble"},{"art":"spirit-ember-wisp.png","id":"spirit-ember-wisp","line":"A warm ember that has burned low for a hundred years and never quite gone out.","name":"The Ember Wisp"},{"art":"spirit-nightchoir.png","id":"spirit-nightchoir","line":"A chorus of night-blooming voices that sings every wish in rounds.","name":"The Nightchoir"}]}
+{
+  "spirits": [
+    {
+      "art": "spirit-moss-keeper.png",
+      "id": "spirit-moss-keeper",
+      "line": "An ancient gardener spirit who remembers every seed ever planted in the Haven.",
+      "name": "The Moss Keeper"
+    },
+    {
+      "art": "spirit-dusk-moth.png",
+      "id": "spirit-dusk-moth",
+      "line": "A sleepy moth spirit who trades in twilight secrets and naps through noon.",
+      "name": "The Dusk Moth"
+    },
+    {
+      "art": "spirit-star-wisp.png",
+      "id": "spirit-star-wisp",
+      "line": "A bright young spark who fell off the constellation map and never climbed back.",
+      "name": "The Star Wisp"
+    },
+    {
+      "art": "spirit-bramble.png",
+      "id": "spirit-bramble",
+      "line": "A gruff thorn spirit with bark worse than his bite and a soft spot for underdogs.",
+      "name": "Bramble"
+    },
+    {
+      "art": "spirit-ember-wisp.png",
+      "id": "spirit-ember-wisp",
+      "line": "A warm ember that has burned low for a hundred years and never quite gone out.",
+      "name": "The Ember Wisp"
+    },
+    {
+      "art": "spirit-nightchoir.png",
+      "id": "spirit-nightchoir",
+      "line": "A chorus of night-blooming voices that sings every wish in rounds.",
+      "name": "The Nightchoir"
+    },
+    {
+      "id": "spirit-thorn",
+      "name": "The Thorn Warden",
+      "line": "A bramble-knight who pricks only those who deserve it.",
+      "art": "spirit-thorn.png"
+    },
+    {
+      "id": "spirit-crystal-wisp",
+      "name": "The Crystal Wisp",
+      "line": "A shard of living quartz that hums forgotten lullabies.",
+      "art": "spirit-crystal-wisp.png"
+    },
+    {
+      "id": "spirit-mooncap-elder",
+      "name": "The Mooncap Elder",
+      "line": "Oldest of the mooncap folk; remembers when the Haven was wild.",
+      "art": "spirit-mooncap-elder.png"
+    },
+    {
+      "id": "spirit-petal-dancer",
+      "name": "The Petal Dancer",
+      "line": "She dances only at dusk, and only for blooming gardens.",
+      "art": "spirit-petal-dancer.png"
+    },
+    {
+      "id": "spirit-root-guardian",
+      "name": "The Root Guardian",
+      "line": "A silent sentinel woven from the Haven's deepest roots.",
+      "art": "spirit-root-guardian.png"
+    },
+    {
+      "id": "spirit-gloom-batling",
+      "name": "The Gloom Batling",
+      "line": "A shy little bat who collects lost starlight in a thimble.",
+      "art": "spirit-gloom-batling.png"
+    }
+  ]
+}

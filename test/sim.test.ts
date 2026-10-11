@@ -56,13 +56,13 @@ function mockData(): GameData {
         reward: { moondew: 10, stardust: 0 } },
     ],
     blessings: Array.from({ length: 14 }, (_, i) => {
-      const kinds: BlessingKind[] = ['moondew', 'wish', 'grove'];
+      const kinds: BlessingKind[] = ['moondew', 'wish', 'grove', 'spawn'];
       return {
-        day: i, name: `b${i}`, desc: '',
-        effect: { kind: kinds[i % 3] as BlessingKind, pct: 20 },
+        day: i, name: `b${i}`, desc: '', icon: 'blessing-moon.png',
+        effect: { kind: kinds[i % 4] as BlessingKind, pct: 20 },
       };
     }),
-    spirits: Array.from({ length: 6 }, (_, i) => ({
+    spirits: Array.from({ length: 12 }, (_, i) => ({
       id: `s${i}`, name: `s${i}`, line: '', art: '',
     })),
   };
@@ -107,6 +107,13 @@ describe('spawn', () => {
     const c0 = spawnCost(D, s);
     s.stats.spawned = 50;
     assert.ok(spawnCost(D, s) > c0);
+  });
+  it('spawn blessing discount applies', () => {
+    const s = freshState(NOW);
+    s.dayIndex = 3; // kinds[3] = 'spawn' in mock
+    const c = spawnCost(D, s);
+    s.dayIndex = 0; // 'moondew'
+    assert.ok(spawnCost(D, s) > c);
   });
 });
 

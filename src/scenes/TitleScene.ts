@@ -8,8 +8,8 @@ export class TitleScene extends Phaser.Scene {
 
   create(): void {
     const { w, h, cx } = lay(this);
-    coverBg(this, 'bg-board-far');
-    this.add.rectangle(0, 0, w, h, 0x12101d, 0.35).setOrigin(0);
+    coverBg(this, 'bg-title-art');
+    this.add.rectangle(0, 0, w, h, 0x12101d, 0.25).setOrigin(0);
 
     const ribbon = img(this, 'ribbon-banner.png');
     ribbon.setDisplaySize(Math.min(w * 0.86, 620), 120);

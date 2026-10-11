@@ -1,1 +1,144 @@
-{"blessings":[{"day":0,"desc":"The moon hangs low and generous; every harvest runs fuller.","effect":{"kind":"moondewBoost","pct":15},"name":"Moondew Tide"},{"day":1,"desc":"The spirits are feeling lavish with their rewards today.","effect":{"kind":"wishRewardBoost","pct":20},"name":"Wishkeeper's Favor"},{"day":2,"desc":"The grove soil is warm; pots yield more than they should.","effect":{"kind":"groveBoost","pct":15},"name":"Grove's Bounty"},{"day":3,"desc":"The Dusk Moth flutters over the seed pouches, and prices flutter down.","effect":{"kind":"spawnDiscount","pct":10},"name":"Mothwing Discount"},{"day":4,"desc":"A light rain of stardust feeds every leaf in the Haven.","effect":{"kind":"moondewBoost","pct":20},"name":"Stardust Rain"},{"day":5,"desc":"The Nightchoir sings your name between verses; wishes pay better.","effect":{"kind":"wishRewardBoost","pct":25},"name":"Choir's Blessing"},{"day":6,"desc":"Old roots stir and share their stored sweetness with the grove.","effect":{"kind":"groveBoost","pct":20},"name":"Deep Roots"},{"day":7,"desc":"The Moss Keeper haggles the seed merchants down on your behalf.","effect":{"kind":"spawnDiscount","pct":15},"name":"Keeper's Patience"},{"day":8,"desc":"The Ember Wisp burns a little brighter, and every harvest glows.","effect":{"kind":"moondewBoost","pct":25},"name":"Ember's Warmth"},{"day":9,"desc":"The blue hour stretches long; spirits trade eagerly in the long dusk.","effect":{"kind":"wishRewardBoost","pct":30},"name":"Twilight Surge"},{"day":10,"desc":"The wildwood sends a gift of rich soil through the root cellar.","effect":{"kind":"groveBoost","pct":25},"name":"Wildwood Gift"},{"day":11,"desc":"A slow starfall dusts the Haven; moondew runs like a tide.","effect":{"kind":"moondewBoost","pct":30},"name":"Starfall"},{"day":12,"desc":"The longest night of the cycle; every wish carries extra weight.","effect":{"kind":"wishRewardBoost","pct":35},"name":"The Long Night"},{"day":13,"desc":"The Haven itself breathes with you; the whole grove overflows.","effect":{"kind":"groveBoost","pct":30},"name":"Haven's Heart"}]}
+{
+  "blessings": [
+    {
+      "day": 0,
+      "desc": "The moon hangs low and generous; every harvest runs fuller.",
+      "effect": {
+        "kind": "moondewBoost",
+        "pct": 15
+      },
+      "name": "Moondew Tide",
+      "icon": "blessing-moon.png"
+    },
+    {
+      "day": 1,
+      "desc": "The spirits are feeling lavish with their rewards today.",
+      "effect": {
+        "kind": "wishRewardBoost",
+        "pct": 20
+      },
+      "name": "Wishkeeper's Favor",
+      "icon": "blessing-star.png"
+    },
+    {
+      "day": 2,
+      "desc": "The grove soil is warm; pots yield more than they should.",
+      "effect": {
+        "kind": "groveBoost",
+        "pct": 15
+      },
+      "name": "Grove's Bounty",
+      "icon": "blessing-leaf.png"
+    },
+    {
+      "day": 3,
+      "desc": "The Dusk Moth flutters over the seed pouches, and prices flutter down.",
+      "effect": {
+        "kind": "spawnDiscount",
+        "pct": 10
+      },
+      "name": "Mothwing Discount",
+      "icon": "blessing-moth.png"
+    },
+    {
+      "day": 4,
+      "desc": "A light rain of stardust feeds every leaf in the Haven.",
+      "effect": {
+        "kind": "moondewBoost",
+        "pct": 20
+      },
+      "name": "Stardust Rain",
+      "icon": "blessing-rain.png"
+    },
+    {
+      "day": 5,
+      "desc": "The Nightchoir sings your name between verses; wishes pay better.",
+      "effect": {
+        "kind": "wishRewardBoost",
+        "pct": 25
+      },
+      "name": "Choir's Blessing",
+      "icon": "blessing-heart.png"
+    },
+    {
+      "day": 6,
+      "desc": "Old roots stir and share their stored sweetness with the grove.",
+      "effect": {
+        "kind": "groveBoost",
+        "pct": 20
+      },
+      "name": "Deep Roots",
+      "icon": "blessing-leaf.png"
+    },
+    {
+      "day": 7,
+      "desc": "The Moss Keeper haggles the seed merchants down on your behalf.",
+      "effect": {
+        "kind": "spawnDiscount",
+        "pct": 15
+      },
+      "name": "Keeper's Patience",
+      "icon": "blessing-sunrise.png"
+    },
+    {
+      "day": 8,
+      "desc": "The Ember Wisp burns a little brighter, and every harvest glows.",
+      "effect": {
+        "kind": "moondewBoost",
+        "pct": 25
+      },
+      "name": "Ember's Warmth",
+      "icon": "blessing-crystal.png"
+    },
+    {
+      "day": 9,
+      "desc": "The blue hour stretches long; spirits trade eagerly in the long dusk.",
+      "effect": {
+        "kind": "wishRewardBoost",
+        "pct": 30
+      },
+      "name": "Twilight Surge",
+      "icon": "blessing-star.png"
+    },
+    {
+      "day": 10,
+      "desc": "The wildwood sends a gift of rich soil through the root cellar.",
+      "effect": {
+        "kind": "groveBoost",
+        "pct": 25
+      },
+      "name": "Wildwood Gift",
+      "icon": "blessing-leaf.png"
+    },
+    {
+      "day": 11,
+      "desc": "A slow starfall dusts the Haven; moondew runs like a tide.",
+      "effect": {
+        "kind": "moondewBoost",
+        "pct": 30
+      },
+      "name": "Starfall",
+      "icon": "blessing-star.png"
+    },
+    {
+      "day": 12,
+      "desc": "The longest night of the cycle; every wish carries extra weight.",
+      "effect": {
+        "kind": "wishRewardBoost",
+        "pct": 35
+      },
+      "name": "The Long Night",
+      "icon": "blessing-moon.png"
+    },
+    {
+      "day": 13,
+      "desc": "The Haven itself breathes with you; the whole grove overflows.",
+      "effect": {
+        "kind": "groveBoost",
+        "pct": 30
+      },
+      "name": "Haven's Heart",
+      "icon": "blessing-heart.png"
+    }
+  ]
+}

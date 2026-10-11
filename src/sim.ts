@@ -154,11 +154,14 @@ export function podCooldownMs(data: GameData, s: GameState): number {
   return Math.max(8000, base * (1 - rc / 100) * (1 - wc / 100));
 }
 
-/** Wish-pod spawn cost in moondew (scales with lifetime spawns, reduced by Fern Sanctum). */
+/** Wish-pod spawn cost in moondew (scales with lifetime spawns, reduced by
+    Fern Sanctum and the daily spawn blessing). */
 export function spawnCost(data: GameData, s: GameState): number {
   const base = Math.min(200, 5 + 2 * s.stats.spawned);
   const red = wingPct(data, s, 'fern-sanctum');
-  return Math.max(1, Math.round(base * (1 - red / 100)));
+  const b = blessingFor(data, s.dayIndex);
+  const blessRed = b.effect.kind === 'spawn' ? b.effect.pct : 0;
+  return Math.max(1, Math.round(base * (1 - red / 100) * (1 - blessRed / 100)));
 }
 
 /** Moondew gained by offering a plant (prism wing bonus + Moondew blessing). */

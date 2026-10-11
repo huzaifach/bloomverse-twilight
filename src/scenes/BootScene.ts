@@ -7,7 +7,8 @@ import { loadGame, saveGame } from '../save.js';
 import { registerAtlasFrames } from '../ui.js';
 
 const ATLAS_PAGES: [string, number][] = [['game', 2], ['ui', 3]];
-const BG_KEYS = ['bg-board-far', 'bg-board-mid', 'bg-grove-night', 'bg-astral-dome'];
+const BG_KEYS = ['bg-board-far', 'bg-board-mid', 'bg-grove-night', 'bg-astral-dome',
+               'bg-title-art', 'bg-wing-root', 'bg-wing-fern', 'bg-wing-prism'];
 
 export class BootScene extends Phaser.Scene {
   constructor() { super('boot'); }

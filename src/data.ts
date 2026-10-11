@@ -38,9 +38,9 @@ export interface AchievementDef {
   trigger: { kind: TriggerKind; value: number };
   reward: { moondew: number; stardust: number };
 }
-export type BlessingKind = 'moondew' | 'wish' | 'grove';
+export type BlessingKind = 'moondew' | 'wish' | 'grove' | 'spawn';
 export interface BlessingDef {
-  day: number; name: string; desc: string;
+  day: number; name: string; desc: string; icon: string;
   effect: { kind: BlessingKind; pct: number };
 }
 export interface SpiritDef { id: string; name: string; line: string; art: string }
@@ -84,6 +84,7 @@ function unwrap(j: unknown, key: string): unknown[] {
 
 const BLESS_MAP: Record<string, BlessingKind> = {
   moondewBoost: 'moondew', wishRewardBoost: 'wish', groveBoost: 'grove',
+  spawnDiscount: 'spawn',
 };
 
 /** Adapt the authored on-disk schema into the engine's GameData. */
@@ -186,6 +187,7 @@ export function adaptWorkerData(raw: Record<string, unknown[]>): GameData {
     const k = BLESS_MAP[str(eff, 'kind')] ?? 'moondew';
     return {
       day: num(b, 'day'), name: str(b, 'name'), desc: str(b, 'desc'),
+      icon: str(b, 'icon'),
       effect: { kind: k, pct: num(eff, 'pct') },
     };
   });
@@ -228,7 +230,7 @@ export function validateGameData(d: GameData): GameData {
     if (u.levels.length !== 10) throw new Error(`data: upgrade ${u.id} levels != 10`);
   if (d.achievements.length !== 24) throw new Error('data: want 24 achievements');
   if (d.blessings.length !== 14) throw new Error('data: want 14 blessings');
-  if (d.spirits.length !== 6) throw new Error('data: want 6 spirits');
+  if (d.spirits.length !== 12) throw new Error('data: want 12 spirits');
   return d;
 }
 
