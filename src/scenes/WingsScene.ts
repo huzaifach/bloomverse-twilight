@@ -88,7 +88,7 @@ export class WingsScene extends Phaser.Scene {
             saveGame(s);
             this.scene.restart();
           } else audio().play('error');
-        }, { w: 148, h: 60, fontSize: 24, fireOnDown: true });
+        }, { w: 148, h: 60, fontSize: 24 });
         b.setPosition(rightX, 30);
         card.add(b);
       } else {
@@ -139,7 +139,7 @@ export class WingsScene extends Phaser.Scene {
           fanfare(this, [{ icon: medalIcon, label: `+${medals} Star Medals` }],
             () => this.scene.start('board'));
         } else audio().play('error');
-      }, { w: 280, h: 68, fontSize: 27, fireOnDown: true });
+      }, { w: 280, h: 68, fontSize: 27 });
       b.setPosition(10, ry + 62);
       const mb = img(this, medalIcon).setDisplaySize(54, 54);
       mb.setPosition(-cw / 2 + 44, ry + 62);

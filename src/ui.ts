@@ -64,8 +64,19 @@ export function button(scene: Phaser.Scene, label: string,
   bg.setInteractive(new Phaser.Geom.Rectangle(-w / 2, -h / 2, w, h),
     Phaser.Geom.Rectangle.Contains);
   if (bg.input) bg.input.cursor = 'pointer';
-  bg.on('pointerdown', () => { c.setScale(0.94); if (o.fireOnDown) fire(); });
-  bg.on('pointerup', () => { if (!o.fireOnDown) fire(); else c.setScale(1); });
+  // drag guard: a press that moves >24px is a scroll, not a tap (scroll views)
+  let dx = 0, dy = 0;
+  bg.on('pointerdown', (p: Phaser.Input.Pointer) => {
+    dx = p.x; dy = p.y;
+    c.setScale(0.94);
+    if (o.fireOnDown) fire();
+  });
+  bg.on('pointerup', (p: Phaser.Input.Pointer) => {
+    if (!o.fireOnDown) {
+      if (Math.abs(p.x - dx) + Math.abs(p.y - dy) <= 24) fire();
+      else c.setScale(1);
+    } else c.setScale(1);
+  });
   bg.on('pointerout', () => c.setScale(1));
   return c;
 }

@@ -156,7 +156,7 @@ export function openWishBoard(scene: Phaser.Scene, onClaimed: Refresh): void {
           { icon: 'icon-renown.png', label: `+${w.rewards.renown} Renown` },
         ], onClaimed);
       }
-    }, { w: 100, h: 56, fontSize: 24, fireOnDown: true });
+    }, { w: 100, h: 56, fontSize: 24 });
     claim.setPosition(left + cw - 58, rwY);
     card.add(claim);
     content.add(card);
