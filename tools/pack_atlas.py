@@ -7,7 +7,7 @@ import sys
 from PIL import Image
 
 REPO = os.path.expanduser("~/workspace/bloomverse-twilight")
-SRC = os.path.join(REPO, "assets", "sprites")
+SRC = os.path.expanduser("~/workspace/bloomverse-twilight-art-src")
 DST = os.path.join(REPO, "assets", "atlases")
 MAX = 2048
 PAD = 4
