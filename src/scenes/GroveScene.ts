@@ -4,15 +4,16 @@ import { attachDebug } from '../debug.js';
 import { applyCommand, groveRate, plantTierOf, potsUnlocked } from '../sim.js';
 import { plantById } from '../data.js';
 import { saveGame } from '../save.js';
-import { button, dimmer, F_BODY, F_NUM, F_UI, iconButton, img, panel,
-         titleText, levelPips, Pill, fmt, atlasFor } from '../ui.js';
+import { button, dimmer, F_BODY, F_NUM, F_UI, img, panel, ratePill,
+         squareBtn, titleText, fmt, atlasFor } from '../ui.js';
 import { fanfare, openSettings, plantInfo } from './overlays.js';
 import { navDock } from './navdock.js';
 
 export class GroveScene extends Phaser.Scene {
-  private pills!: { moondew: Pill };
-  private collectBtn!: Phaser.GameObjects.Container;
-  private collectLabel!: Phaser.GameObjects.Text;
+  private moondewT!: Phaser.GameObjects.Text;
+  private rateT!: Phaser.GameObjects.Text;
+  private idleT!: Phaser.GameObjects.Text;
+  private collectB!: Phaser.GameObjects.Container;
 
   constructor() { super('grove'); }
 
@@ -25,14 +26,23 @@ export class GroveScene extends Phaser.Scene {
     coverBg(this, 'bg-grove-night');
     this.add.rectangle(0, 0, w, h, 0x12101d, 0.25).setOrigin(0);
 
-    this.pills = { moondew: new Pill(this, 'icon-moondew.png', 150) };
-    this.pills.moondew.setPosition(83, 42);
-    const gear = iconButton(this, 'icon-gear.png', 52, () => {
+    // Mockup HUD: dark bar with title, moondew, gear.
+    const bar = panel(this, 404, 100, true);
+    bar.setPosition(cx, 58);
+    const title = this.add.text(28, 58, 'MOONWELL GROVE', {
+      fontFamily: F_UI, fontSize: '24px', color: '#F5E6C8', fontStyle: '800',
+    }).setOrigin(0, 0.5);
+    const mIcon = img(this, 'icon-moondew.png').setDisplaySize(34, 34)
+      .setPosition(238, 58);
+    this.moondewT = this.add.text(260, 58, '', {
+      fontFamily: F_NUM, fontSize: '24px', color: '#F5E6C8', fontStyle: '800',
+    }).setOrigin(0, 0.5);
+    const gear = squareBtn(this, 'icon-gear.png', 56, () => {
       audio().play('click');
       openSettings(this, () => this.refresh());
     });
-    gear.setPosition(w - 30, 42);
-    titleText(this, cx, 102, 'MOONWELL GROVE', 32);
+    gear.setPosition(372, 58);
+    void title; void mIcon; void bar;
 
     this.buildPots(w, h, cx);
     this.buildCollect(w, h, cx);
@@ -48,7 +58,7 @@ export class GroveScene extends Phaser.Scene {
     const rows = [5, 3];
     let pot = 0;
     rows.forEach((count, r) => {
-      const y = r === 0 ? 420 : 280;
+      const y = r === 0 ? 460 : 320;
       const pw = Math.min(w * 0.92, 640) / count;
       for (let c = 0; c < count; c++, pot++) {
         const x = cx - (count - 1) * pw / 2 + c * pw;
@@ -74,9 +84,9 @@ export class GroveScene extends Phaser.Scene {
           const pl = this.add.image(0, -pw * 0.42, atlasFor(t.art), t.art)
             .setDisplaySize(pw * 0.62, pw * 0.62);
           if (r === 1) pl.setScale(0.85).setAlpha(0.85);
-          const rate = this.add.text(0, pw * 0.44, `+${fmt(t.moondewPerHour)}/hr`, {
-            fontFamily: F_NUM, fontSize: '22px', color: '#F5E6C8', fontStyle: '700',
-          }).setOrigin(0.5);
+          const rate = ratePill(this, `+${fmt(t.moondewPerHour)}/hr`,
+            t.tier >= 6 ? 0xb9a7e6 : t.tier >= 4 ? 0x7fb069 : 0xe8a87c);
+          rate.setPosition(0, pw * 0.44);
           cont.add([pl, rate]);
           potImg.setInteractive({ useHandCursor: true })
             .on('pointerup', () => plantInfo(this, pid));
@@ -137,19 +147,16 @@ export class GroveScene extends Phaser.Scene {
     root.add(close);
   }
 
+  /** Mockup AFK bar: amber strip with rate label + collect button, idle pill. */
   private buildCollect(w: number, h: number, cx: number): void {
-    const y = 560;
-    this.collectBtn = this.add.container(cx, y).setDepth(5);
-    this.collectLabel = this.add.text(0, 0, '', {
-      fontFamily: F_UI, fontSize: '30px', color: '#3A2410', fontStyle: '800',
-    }).setOrigin(0.5);
-    const bg = this.add.nineslice(0, 0, atlasFor('button-amber.png'), 'button-amber.png',
-      360, 88, 40, 40, 40, 40);
-    this.collectBtn.add([bg, this.collectLabel]);
-    bg.setInteractive(new Phaser.Geom.Rectangle(-180, -44, 360, 88),
-      Phaser.Geom.Rectangle.Contains);
-    if (bg.input) bg.input.cursor = 'pointer';
-    bg.on('pointerup', () => {
+    const y = 152;
+    const [at, fr] = [atlasFor('button-amber.png'), 'button-amber.png'] as const;
+    const barBg = this.add.nineslice(cx, y, at, fr, 404, 76, 60, 60, 60, 60);
+    void barBg;
+    this.rateT = this.add.text(30, y, '', {
+      fontFamily: F_UI, fontSize: '22px', color: '#3A2410', fontStyle: '800',
+    }).setOrigin(0, 0.5);
+    this.collectB = button(this, 'Collect', () => {
       const s = state(), d = data();
       const ev = applyCommand(d, s, { type: 'collectGrove', now: Date.now() });
       const got = ev.find((e) => e.type === 'collected');
@@ -159,19 +166,34 @@ export class GroveScene extends Phaser.Scene {
         fanfare(this, [{ icon: 'icon-moondew.png', label: `+${fmt(got.amount)} Moondew` }],
           () => this.refresh());
       } else audio().play('error');
-    });
-    void w;
+    }, { w: 150, h: 60, fontSize: 26, fireOnDown: true });
+    this.collectB.setPosition(cx + 118, y);
+    // idle earnings pill (mockup)
+    const idle = this.add.graphics();
+    idle.fillStyle(0x1e1830, 0.92);
+    idle.fillRoundedRect(cx - 150, 208, 300, 44, 22);
+    idle.lineStyle(2, 0xb9a7e6, 0.6);
+    idle.strokeRoundedRect(cx - 150, 208, 300, 44, 22);
+    this.idleT = this.add.text(cx, 230, '', {
+      fontFamily: F_UI, fontSize: '21px', color: '#EDE6D6', fontStyle: '700',
+    }).setOrigin(0.5);
+    void w; void h;
   }
 
   private buildUpgrades(w: number, h: number, cx: number): void {
     const d = data(), s = state();
-    // Compact rows that fit the 420px canvas above the dock.
-    const y0 = 630, rowH = 80;
+    // Compact rows on dark strips that fit the 420px canvas above the dock.
+    const y0 = 600, rowH = 75;
     const UPGRADE_ICON: Record<string, string> = {
       raincaller: 'charm-raincaller.png', moths: 'moth-moon.png', starpots: 'star-pot.png',
     };
     d.upgrades.forEach((line, i) => {
       const y = y0 + i * rowH;
+      const strip = this.add.graphics();
+      strip.fillStyle(0x1e1830, 0.88);
+      strip.fillRoundedRect(8, y - 33, 404, 66, 16);
+      strip.lineStyle(2, 0x4a3b6b, 0.8);
+      strip.strokeRoundedRect(8, y - 33, 404, 66, 16);
       const lvl = s.grove.upgrades[line.id] ?? 0;
       const ic = img(this, UPGRADE_ICON[line.id] ?? 'star-pot.png').setDisplaySize(48, 48);
       ic.setPosition(38, y);
@@ -205,8 +227,9 @@ export class GroveScene extends Phaser.Scene {
 
   private refresh(): void {
     const s = state(), d = data();
-    this.pills.moondew.setValue(s.currencies.moondew);
+    this.moondewT.setText(fmt(s.currencies.moondew));
     const rate = groveRate(d, s);
-    this.collectLabel.setText(`Collect · +${fmt(rate)}/hr`);
+    this.rateT.setText(`Moonwell • +${fmt(rate)}/hr`);
+    this.idleT.setText(`🍃 Idle Earnings: +${fmt(rate)}/hr`);
   }
 }

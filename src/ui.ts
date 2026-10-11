@@ -36,8 +36,7 @@ export function fmt(n: number): string {
 }
 
 /** Nine-sliced panel from atlas-ui frames. */
-export function panel(scene: Phaser.Scene, w: number, h: number,
-                      dark = false, corner = 56): Phaser.GameObjects.NineSlice {
+export function panel(scene: Phaser.Scene, w: number, h: number,                      dark = false, corner = 56): Phaser.GameObjects.NineSlice {
   const [t, f] = tex(dark ? 'panel-umbral.png' : 'panel-parchment.png');
   return scene.add.nineslice(0, 0, t, f, w, h, corner, corner, corner, corner);
 }
@@ -137,4 +136,67 @@ export function levelPips(scene: Phaser.Scene, x: number, y: number,
 export interface Hud {
   root: Phaser.GameObjects.Container;
   refresh: () => void;
+}
+
+/** Amber name pill (pill-amber nineslice) sized to its text. Mockup contract. */
+export function namePill(scene: Phaser.Scene, text: string,
+                         fontSize = 22): Phaser.GameObjects.Container {
+  const c = scene.add.container(0, 0);
+  const t = scene.add.text(0, 0, text, {
+    fontFamily: F_UI, fontSize: `${fontSize}px`, color: '#3A2410', fontStyle: '800',
+  }).setOrigin(0.5);
+  const w = Math.max(96, t.width + 56), h = fontSize + 26;
+  const [at, fr] = tex('pill-amber.png');
+  const bg = scene.add.nineslice(0, 0, at, fr, w, h, 40, 40, 30, 30);
+  c.add([bg, t]);
+  c.setSize(w, h);
+  return c;
+}
+
+/** Square amber button with an icon (mockup HUD buttons). */
+export function squareBtn(scene: Phaser.Scene, icon: string, size: number,
+                          cb: () => void): Phaser.GameObjects.Container {
+  const c = scene.add.container(0, 0);
+  const [at, fr] = tex('button-amber.png');
+  const bg = scene.add.nineslice(0, 0, at, fr, size, size, 60, 60, 60, 60);
+  const ic = img(scene, icon).setDisplaySize(size * 0.56, size * 0.56);
+  c.add([bg, ic]);
+  bg.setInteractive(new Phaser.Geom.Rectangle(-size / 2, -size / 2, size, size),
+    Phaser.Geom.Rectangle.Contains);
+  if (bg.input) bg.input.cursor = 'pointer';
+  bg.on('pointerdown', () => {
+    scene.tweens.add({ targets: c, scale: 0.92, duration: 70, yoyo: true });
+    cb();
+  });
+  c.setSize(size, size);
+  return c;
+}
+
+/** Rounded inset cell behind a HUD icon (mockup currency cells). */
+export function insetCell(scene: Phaser.Scene, w: number, h: number,
+                          color: number): Phaser.GameObjects.Graphics {
+  const g = scene.add.graphics();
+  g.fillStyle(color, 1);
+  g.fillRoundedRect(-w / 2, -h / 2, w, h, 18);
+  g.lineStyle(3, 0xf5e6c8, 0.85);
+  g.strokeRoundedRect(-w / 2, -h / 2, w, h, 18);
+  return g;
+}
+
+/** Small colored rate pill (+N/h) for grove pots. */
+export function ratePill(scene: Phaser.Scene, text: string,
+                         bg: number): Phaser.GameObjects.Container {
+  const c = scene.add.container(0, 0);
+  const t = scene.add.text(0, 0, text, {
+    fontFamily: F_NUM, fontSize: '20px', color: '#241a10', fontStyle: '800',
+  }).setOrigin(0.5);
+  const w = Math.max(84, t.width + 32), h = 38;
+  const r = scene.add.graphics();
+  r.fillStyle(bg, 1);
+  r.fillRoundedRect(-w / 2, -h / 2, w, h, 19);
+  r.lineStyle(2, 0xffffff, 0.5);
+  r.strokeRoundedRect(-w / 2, -h / 2, w, h, 19);
+  c.add([r, t]);
+  c.setSize(w, h);
+  return c;
 }

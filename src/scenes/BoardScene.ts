@@ -5,10 +5,11 @@ import { BOARD_N, PALETTE } from '../config.js';
 import { applyCommand, Cell, spawnCost } from '../sim.js';
 import { plantById } from '../data.js';
 import { saveGame } from '../save.js';
-import { button, dimmer, F_BODY, F_NUM, F_UI, iconButton, img, Pill,
-         atlasFor } from '../ui.js';
+import { button, dimmer, F_BODY, F_NUM, F_UI, fmt, img, insetCell, panel,
+         squareBtn, titleText, atlasFor } from '../ui.js';
 import { awayPopup, fanfare, openSettings, openWishBoard, plantInfo,
          tutorialStep } from './overlays.js';
+import { navDock } from './navdock.js';
 
 interface CellView {
   root: Phaser.GameObjects.Container;
@@ -25,7 +26,7 @@ export class BoardScene extends Phaser.Scene {
   private tile = 120;
   private boardX = 0;
   private boardY = 0;
-  private pills!: { moondew: Pill; stardust: Pill; renown: Pill };
+  private hudVals: { val: Phaser.GameObjects.Text; get: () => number }[] = [];
   private podBtn!: Phaser.GameObjects.Container;
   private podLabel!: Phaser.GameObjects.Text;
   private poof!: Phaser.GameObjects.Particles.ParticleEmitter;
@@ -56,6 +57,7 @@ export class BoardScene extends Phaser.Scene {
     this.buildHud(w);
     this.buildBoard(w, h, cx);
     this.buildDock(w, h, cx);
+    this.buildHintBar();
     this.poof = this.add.particles(0, 0, atlasFor('fx-gold-burst.png'), {
       frame: 'fx-gold-burst.png', speed: { min: 60, max: 220 },
       lifespan: 500, scale: { start: 0.5, end: 0 }, quantity: 0,
@@ -93,31 +95,100 @@ export class BoardScene extends Phaser.Scene {
     this.input.on('pointerup', this.onUp, this);
   }
 
+  /** Mockup HUD: parchment bar, icon-in-inset currency cells, square buttons. */
   private buildHud(w: number): void {
-    const s = state();
-    const y = 42;
-    // 420px design canvas: pills + gear must fit 0–420.
-    this.pills = {
-      moondew: new Pill(this, 'icon-moondew.png', 140),
-      stardust: new Pill(this, 'icon-stardust.png', 118),
-      renown: new Pill(this, 'icon-renown.png', 92),
-    };
-    this.pills.moondew.setPosition(78, y);
-    this.pills.stardust.setPosition(212, y);
-    this.pills.renown.setPosition(313, y);
-    const gear = iconButton(this, 'icon-gear.png', 52, () => {
+    const cx = w / 2;
+    const bar = panel(this, 404, 148);
+    bar.setPosition(cx, 80);
+    const cells: { icon: string; name: string; color: number; get: () => number }[] = [
+      { icon: 'icon-moondew.png', name: 'Moondew', color: 0x1b6b6b,
+        get: () => state().currencies.moondew },
+      { icon: 'icon-stardust.png', name: 'Stardust', color: 0x3b2a6b,
+        get: () => state().currencies.stardust },
+      { icon: 'icon-renown.png', name: 'Renown', color: 0x4a2e5b,
+        get: () => state().currencies.renown },
+    ];
+    this.hudVals = [];
+    cells.forEach((cell, i) => {
+      const x = 62 + i * 86;
+      const inset = insetCell(this, 72, 54, cell.color);
+      inset.setPosition(x, 50);
+      const ic = img(this, cell.icon).setDisplaySize(38, 38).setPosition(x, 50);
+      const nm = this.add.text(x, 88, cell.name, {
+        fontFamily: F_UI, fontSize: '16px', color: '#3A2410', fontStyle: '800',
+      }).setOrigin(0.5);
+      const val = this.add.text(x, 110, fmt(cell.get()), {
+        fontFamily: F_NUM, fontSize: '20px', color: '#3A2410', fontStyle: '800',
+      }).setOrigin(0.5);
+      this.hudVals.push({ val, get: cell.get });
+      void nm; void ic;
+    });
+    const gear = squareBtn(this, 'icon-gear.png', 62, () => {
       audio().play('click');
       openSettings(this, () => this.refreshHud());
     });
-    gear.setPosition(w - 30, y);
-    void s;
+    gear.setPosition(316, 80);
+    const pause = squareBtn(this, 'icon-sleeping-moon.png', 62, () => {
+      audio().play('click');
+      this.pauseOverlay();
+    });
+    pause.setPosition(380, 80);
+    void w;
+  }
+
+  /** Simple pause overlay (mockup has a pause button). */
+  private pauseOverlay(): void {
+    const { h, cx } = lay(this);
+    const root = this.add.container(0, 0).setDepth(400);
+    const dim = dimmer(this, 0.6);
+    const p = panel(this, 320, 250);
+    p.setPosition(cx, h / 2);
+    root.add([dim, p]);
+    dim.setInteractive().on('pointerup', () => root.destroy());
+    const t = titleText(this, cx, h / 2 - 60, 'PAUSED', 44);
+    root.add(t);
+    const b = button(this, 'Resume', () => {
+      audio().play('click');
+      root.destroy();
+    }, { w: 220, h: 80, fontSize: 30, fireOnDown: true });
+    b.setPosition(cx, h / 2 + 50);
+    root.add(b);
+  }
+
+  /** Bottom hint banner (mockup's empty parchment banner, made useful). */
+  private hintText: Phaser.GameObjects.Text | null = null;
+
+  private buildHintBar(): void {
+    const y = 640;
+    const p = panel(this, 244, 88);
+    p.setPosition(130, y);
+    this.hintText = this.add.text(130, y, '', {
+      fontFamily: F_BODY, fontSize: '19px', color: '#5a4a3a', align: 'center',
+      wordWrap: { width: 220 },
+    }).setOrigin(0.5);
+    const c1 = img(this, 'ornament-corner.png').setDisplaySize(34, 34)
+      .setPosition(22, y + 30);
+    const c2 = img(this, 'ornament-corner.png').setDisplaySize(34, 34)
+      .setPosition(238, y + 30).setFlipX(true);
+    void c1; void c2; void p;
+    this.updateHint();
+  }
+
+  private updateHint(): void {
+    if (!this.hintText) return;
+    const s = state();
+    const withered = s.board.filter((c) => c && c.kind === 'withered').length;
+    const empty = s.board.filter((c) => !c).length;
+    this.hintText.setText(withered > 0 ? 'Merge beside withered tiles to heal them'
+      : empty > 0 ? 'Tap the wish pod to grow a sprout'
+      : 'Drag a plant onto its twin to merge');
   }
 
   private buildBoard(w: number, h: number, cx: number): void {
     const boardW = Math.min(w * 0.94, 640);
     this.tile = boardW / BOARD_N;
     this.boardX = cx - boardW / 2;
-    this.boardY = 130;
+    this.boardY = 172;
     void h;
     for (let i = 0; i < 25; i++) {
       const r = Math.floor(i / 5), c = i % 5;
@@ -142,40 +213,25 @@ export class BoardScene extends Phaser.Scene {
   }
 
   private buildDock(w: number, h: number, cx: number): void {
-    const y = h - 92;
-    // wish pod (spawner)
-    this.podBtn = this.add.container(86, y - 40).setDepth(10);
-    const pod = img(this, 'wish-pod.png').setDisplaySize(110, 110);
-    this.podLabel = this.add.text(0, 62, '', {
+    // action row: wish pod (spawner) + wishes button, above the tab bar
+    const y = 740;
+    this.podBtn = this.add.container(70, y).setDepth(10);
+    const pod = img(this, 'wish-pod.png').setDisplaySize(96, 96);
+    this.podLabel = this.add.text(0, 58, '', {
       fontFamily: F_NUM, fontSize: '22px', color: '#F5E6C8', fontStyle: '700',
     }).setOrigin(0.5);
     this.podBtn.add([pod, this.podLabel]);
-    pod.setInteractive({ useHandCursor: true });
+    pod.setInteractive(new Phaser.Geom.Rectangle(-48, -48, 96, 96),
+      Phaser.Geom.Rectangle.Contains);
+    if (pod.input) pod.input.cursor = 'pointer';
     pod.on('pointerup', () => this.trySpawn());
-    // nav (420px canvas: 4 items fit 0–420)
-    const mk = (i: number, label: string, icon: string, go: string, active: boolean) => {
-      const b = this.add.container(cx - 157.5 + i * 105, y).setDepth(10);
-      const bg = this.add.circle(0, -14, 40, active ? PALETTE.ember : 0x2a2438, active ? 1 : 0.85);
-      const ic = img(this, icon).setDisplaySize(52, 52).setPosition(0, -14);
-      const lb = this.add.text(0, 34, label, {
-        fontFamily: F_UI, fontSize: '22px', color: '#F5E6C8', fontStyle: '800',
-      }).setOrigin(0.5);
-      b.add([bg, ic, lb]);
-      if (!active) bg.setInteractive({ useHandCursor: true })
-        .on('pointerup', () => { audio().play('click'); this.scene.start(go); });
-      return b;
-    };
-    mk(0, 'Board', 'tile-parchment.png', 'board', true);
-    mk(1, 'Grove', 'star-pot.png', 'grove', false);
-    mk(2, 'Atlas', 'icon-stardust.png', 'atlas', false);
-    mk(3, 'Wings', 'icon-renown.png', 'wings', false);
-    // wish board button
-    const wb = button(this, '☁ Wishes', () => {
+    const wb = button(this, '\u2601 Wishes', () => {
       audio().play('click');
       openWishBoard(this, () => { this.renderBoard(); this.refreshHud(); });
-    }, { w: 190, h: 78, fontSize: 30 });
-    wb.setPosition(w - 120, y - 120);
-    void w;
+    }, { w: 170, h: 72, fontSize: 28, fireOnDown: true });
+    wb.setPosition(300, y);
+    navDock(this, 'board');
+    void w; void cx;
   }
 
   private cellAt(x: number, y: number): number {
@@ -340,8 +396,9 @@ export class BoardScene extends Phaser.Scene {
       const v = this.cells[i] as CellView;
       const kind = !c ? 'empty' : c.kind;
       const plantId = c && c.kind === 'plant' ? c.plant : null;
-      v.top.setTexture(atlasFor(kind === 'withered' ? 'tile-withered.png' : 'tile-parchment.png'),
-        kind === 'withered' ? 'tile-withered.png' : 'tile-parchment.png');
+      const wFrame = kind === 'withered' ? 'tile-withered.png' : 'tile-parchment.png';
+      v.top.setTexture(atlasFor(wFrame), wFrame);
+      v.side.setTexture(atlasFor(wFrame), wFrame);
       v.heart.setVisible(kind === 'withered');
       v.kind = kind;
       if (v.plant && plantId === v.plantId) return;
@@ -359,10 +416,8 @@ export class BoardScene extends Phaser.Scene {
   }
 
   private refreshHud(): void {
-    const s = state();
-    this.pills.moondew.setValue(s.currencies.moondew);
-    this.pills.stardust.setValue(s.currencies.stardust);
-    this.pills.renown.setValue(s.currencies.renown);
+    for (const h of this.hudVals) h.val.setText(fmt(h.get()));
+    this.updateHint();
   }
 
   update(_t: number, dt: number): void {

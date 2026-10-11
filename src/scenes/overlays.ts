@@ -5,7 +5,7 @@ import { activeWishes, applyCommand, blessingMult, offerValue } from '../sim.js'
 import { blessingFor, plantById, WishDef } from '../data.js';
 import { saveGame, wipeSave } from '../save.js';
 import { button, dimmer, F_BODY, F_DISPLAY, F_NUM, F_UI, iconButton, img,
-         levelPips, panel, titleText, fmt } from '../ui.js';
+         levelPips, namePill, panel, squareBtn, titleText, fmt } from '../ui.js';
 import { debugLog } from '../debug.js';
 
 export type Refresh = () => void;
@@ -43,59 +43,103 @@ function spiritArt(scene: Phaser.Scene, spiritId: string, size: number):
   return c;
 }
 
-/** Wish board overlay. onClaimed refreshes the parent scene.
- * Compact cards sized for the 420px design canvas — nothing overflows. */
+/** Wish board overlay — mockup contract: parchment panel, wooden sign header,
+ *  spirit portrait medallions, amber name pills, required strip, rewards + claim.
+ *  Cards scroll inside the fixed panel. */
 export function openWishBoard(scene: Phaser.Scene, onClaimed: Refresh): void {
   const { w: sw, h, cx } = lay(scene);
   const d = data(), s = state();
   const wishes = activeWishes(d, s);
-  const cw = Math.min(560, sw - 56);
-  const cardH = 220, gap = 8;
-  const ph = 116 + 3 * (cardH + gap) + 20;
-  const { root, close } = shell(scene, cw + 60, ph);
-  const phC = Math.min(ph, h * 0.94);
-  const topY = h / 2 - phC / 2;
+  const pw = Math.min(424, sw - 20), ph = Math.min(865, h * 0.94);
+  const { root, close } = shell(scene, pw, ph);
+  const topY = h / 2 - ph / 2;
 
-  titleText(scene, cx, topY + 50, 'WISH BOARD', 38);
-  const bless = blessingFor(d, s.dayIndex);
-  const blessIcon = img(scene, bless.icon).setDisplaySize(46, 46);
-  blessIcon.setPosition(cx - cw / 2 + 26, topY + 94);
-  const blessT = scene.add.text(cx - cw / 2 + 56, topY + 94, `✦ ${bless.name}`, {
-    fontFamily: F_BODY, fontSize: '21px', color: '#B9A7E6',
-  }).setOrigin(0, 0.5);
-  root.add([blessT, blessIcon]);
+  // header: wooden sign + subtitle
+  const ribbon = img(scene, 'ribbon-banner.png');
+  ribbon.setDisplaySize(300, 300 * (239 / 629)).setPosition(cx, topY + 62);
+  const rTitle = scene.add.text(cx, topY + 58, 'WISH BOARD', {
+    fontFamily: F_DISPLAY, fontSize: '34px', color: '#F5E6C8', fontStyle: '700',
+  }).setOrigin(0.5);
+  const sub = scene.add.text(cx, topY + 128,
+    `Active Wishes • ${wishes.length}/3`, {
+    fontFamily: F_BODY, fontSize: '21px', color: '#6b5a48',
+  }).setOrigin(0.5);
+  // gear next to the close X (mockup has both)
+  const gear = squareBtn(scene, 'icon-gear.png', 52, () => {
+    audio().play('click');
+    openSettings(scene, () => undefined);
+  });
+  gear.setPosition(cx + pw / 2 - 108, topY + 44);
+  root.add([ribbon, rTitle, sub, gear]);
 
+  // scrollable cards
+  const viewY = topY + 162, viewH = ph - 162 - 52;
+  const content = scene.add.container(cx, viewY);
+  const cw = Math.min(360, pw - 40);
+  const cardH = 250, gap = 12;
+  let cy = cardH / 2;
   wishes.forEach((w: WishDef, slot: number) => {
-    const y = topY + 116 + cardH / 2 + slot * (cardH + gap);
-    const left = cx - cw / 2;
-    const card = panel(scene, cw, cardH);
-    card.setPosition(cx, y);
-    const sp = spiritArt(scene, w.spirit, 62);
-    sp.setPosition(left + 42, y - 66);
-    const nm = scene.add.text(left + 82, y - 66, w.spirit.replace(/-/g, ' '), {
-      fontFamily: F_UI, fontSize: '23px', color: '#3A2410', fontStyle: '800',
-    }).setOrigin(0, 0.5);
-    const tx = scene.add.text(left + 22, y - 28, w.text, {
+    const card = scene.add.container(0, cy);
+    const left = -cw / 2;
+    const bg = panel(scene, cw, cardH);
+    card.add(bg);
+    // spirit medallion: gold ring + art
+    const ring = scene.add.graphics();
+    ring.lineStyle(5, 0xd98e4a, 1);
+    ring.strokeCircle(left + 64, -24, 48);
+    ring.lineStyle(2, 0xf5e6c8, 0.7);
+    ring.strokeCircle(left + 64, -24, 42);
+    const spDef = d.spirits.find((x) => x.id === w.spirit);
+    const art = spDef ? img(scene, spDef.art).setDisplaySize(80, 80) : undefined;
+    if (art) art.setPosition(left + 64, -24);
+    card.add(art ? [ring, art] : [ring]);
+    // name pill
+    const np = namePill(scene, w.spirit.replace(/-/g, ' '), 21);
+    np.setPosition(left + 128 + np.width / 2, -98);
+    card.add(np);
+    // quest text — measured at runtime; strip/rewards flow below it
+    const tx = scene.add.text(left + 128, -70, w.text, {
       fontFamily: F_BODY, fontSize: '20px', color: '#5a4a3a',
-      wordWrap: { width: cw - 44 },
+      wordWrap: { width: cw - 156 },
     }).setOrigin(0, 0);
-    // requirements
-    let rx = left + 46;
+    // shrink worst-case long texts so strip+rewards stay inside the card
+    let fs = 20;
+    while (fs > 14 && (-70 + tx.height + 116) > 96) { fs -= 1; tx.setFontSize(fs); }
+    card.add(tx);
+    const stripY = -70 + tx.height + 14 + 25;
+    // required strip
+    const strip = scene.add.graphics();
+    strip.fillStyle(0xe4d3ac, 1);
+    strip.fillRoundedRect(left + 128, stripY - 25, cw - 140, 50, 12);
+    const rq = scene.add.text(left + 138, stripY, 'Required:', {
+      fontFamily: F_UI, fontSize: '17px', color: '#6b5a48', fontStyle: '800',
+    }).setOrigin(0, 0.5);
+    card.add([strip, rq]);
+    let ix = left + 218;
     for (const r of w.requires) {
       const t = plantById(d, r.plant);
-      const ic = img(scene, t.art).setDisplaySize(46, 46).setPosition(rx, y + 58);
-      const ct = scene.add.text(rx, y + 88, `×${r.count}`, {
-        fontFamily: F_NUM, fontSize: '22px', color: '#3A2410', fontStyle: '700',
-      }).setOrigin(0.5);
-      root.add([ic, ct]);
-      rx += 68;
+      const ic = img(scene, t.art).setDisplaySize(36, 36).setPosition(ix, stripY);
+      const ct = scene.add.text(ix + 20, stripY, `×${r.count}`, {
+        fontFamily: F_NUM, fontSize: '19px', color: '#3A2410', fontStyle: '700',
+      }).setOrigin(0, 0.5);
+      card.add([ic, ct]);
+      ix += 62;
     }
-    const rw = scene.add.text(rx + 6, y + 58,
-      `❖${fmt(w.rewards.moondew)} ✦${w.rewards.stardust} ★${w.rewards.renown}` +
-      (w.cutting ? ' 🌱' : ''), {
-      fontFamily: F_NUM, fontSize: '20px', color: '#7a5a20', fontStyle: '700',
+    // rewards + claim
+    const rwY = stripY + 25 + 14 + 20;
+    const mI = img(scene, 'icon-moondew.png').setDisplaySize(24, 24)
+      .setPosition(left + 140, rwY);
+    const mT = scene.add.text(left + 156, rwY, `×${fmt(w.rewards.moondew)}`, {
+      fontFamily: F_NUM, fontSize: '20px', color: '#3A2410', fontStyle: '700',
     }).setOrigin(0, 0.5);
-    const claim = button(scene, 'Grant', () => {
+    const sI = img(scene, 'icon-stardust.png').setDisplaySize(24, 24)
+      .setPosition(left + 204, rwY);
+    const sT = scene.add.text(left + 220, rwY, `×${w.rewards.stardust}`, {
+      fontFamily: F_NUM, fontSize: '20px', color: '#3A2410', fontStyle: '700',
+    }).setOrigin(0, 0.5);
+    card.add([mI, mT, sI, sT]);
+    const claim = button(scene, 'CLAIM', () => {
+      if (scene.time.now - lastScrollT < 300) return; // was a scroll-drag
       const ev = applyCommand(d, s, { type: 'claimWish', slot, now: Date.now() });
       const denied = ev.find((e) => e.type === 'denied');
       if (denied && denied.type === 'denied') {
@@ -112,10 +156,39 @@ export function openWishBoard(scene: Phaser.Scene, onClaimed: Refresh): void {
           { icon: 'icon-renown.png', label: `+${w.rewards.renown} Renown` },
         ], onClaimed);
       }
-    }, { w: 128, h: 58, fontSize: 25, fireOnDown: true });
-    claim.setPosition(left + cw - 74, y - 66);
-    root.add([card, sp, nm, tx, rw, claim]);
+    }, { w: 100, h: 56, fontSize: 24, fireOnDown: true });
+    claim.setPosition(left + cw - 58, rwY);
+    card.add(claim);
+    content.add(card);
+    cy += cardH + gap;
   });
+  const gridH = cy;
+  const maskShape = scene.add.rectangle(cx, viewY + viewH / 2, pw, viewH, 0xffffff)
+    .setVisible(false);
+  content.setMask(maskShape.createGeometryMask());
+  let dragging = false, lastY = 0, offY = 0, downY = 0;
+  let lastScrollT = -9999;
+  const maxOff = Math.max(0, gridH - viewH + 20);
+  scene.input.on('pointerdown', (p: Phaser.Input.Pointer) => {
+    if (p.y > viewY && p.y < viewY + viewH) { dragging = true; lastY = p.y; downY = p.y; }
+  });
+  scene.input.on('pointermove', (p: Phaser.Input.Pointer) => {
+    if (!dragging || !p.isDown) return;
+    offY = Phaser.Math.Clamp(offY + (p.y - lastY), -maxOff, 0);
+    lastY = p.y;
+    content.setY(viewY + offY);
+  });
+  scene.input.on('pointerup', (p: Phaser.Input.Pointer) => {
+    if (dragging && Math.abs(p.y - downY) > 14) lastScrollT = scene.time.now;
+    dragging = false;
+  });
+  root.add(content);
+
+  // footer (mockup)
+  const foot = scene.add.text(cx, topY + ph - 26, '• Quests refresh at dawn •', {
+    fontFamily: F_BODY, fontSize: '20px', color: '#6b5a48',
+  }).setOrigin(0.5);
+  root.add(foot);
 }
 
 /** Generic reward fanfare. */

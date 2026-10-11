@@ -27,7 +27,7 @@ GROUPS = {
             "star-pot.png", "icon-moondew.png", "icon-stardust.png",
             "icon-renown.png", "icon-gear.png", "panel-parchment.png",
             "panel-umbral.png", "ribbon-banner.png", "button-amber.png",
-            "pill-label.png", "divider-flourish.png", "icon-sleeping-moon.png",
+            "pill-label.png", "pill-amber.png", "divider-flourish.png", "icon-sleeping-moon.png",
             "coach-hand.png", "frame-spirit-card.png", "track-starchart.png",
             "fx-gold-burst.png", "ornament-corner.png", "tex-parchment.png",
             "tex-umbral.png", "tex-nightteal.png", "tex-moss.png",
