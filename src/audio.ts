@@ -22,8 +22,8 @@ export class AudioMan {
   static queueLoader(load: Phaser.Loader.LoaderPlugin): void {
     for (const k of Object.keys(FILES) as SfxName[])
       load.audio(k, [`assets/audio/${FILES[k]}.ogg`, `assets/audio/${FILES[k]}.mp3`]);
-    load.audio('ambient', ['assets/audio/ambient-night.ogg']);
-    load.audio('lullaby', ['assets/audio/lullaby.ogg']);
+    load.audio('ambient', ['assets/audio/ambient-night.ogg', 'assets/audio/ambient-night.mp3']);
+    load.audio('lullaby', ['assets/audio/lullaby.ogg', 'assets/audio/lullaby.mp3']);
   }
 
   unlock(): void {
