@@ -10,6 +10,8 @@ export const F_NUM = 'Fredoka';
 /** frame basename -> atlas texture key (built in BootScene). */
 const frameAtlas: Record<string, string> = {};
 export function registerAtlasFrames(atlasKey: string, frames: Record<string, unknown>): void {
+  if (!frames || typeof frames !== 'object')
+    throw new Error(`atlas frames missing for ${atlasKey} (boot would stall)`);
   for (const f of Object.keys(frames)) frameAtlas[f] = atlasKey;
 }
 function tex(frame: string): [string, string] {

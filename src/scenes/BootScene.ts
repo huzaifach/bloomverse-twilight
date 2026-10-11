@@ -31,7 +31,14 @@ export class BootScene extends Phaser.Scene {
     for (const [group, pages] of ATLAS_PAGES)
       for (let i = 0; i < pages; i++) {
         const key = `atlas-${group}-${i}`;
-        registerAtlasFrames(key, this.cache.json.get(key) as Record<string, unknown>);
+        // NOTE: Phaser's atlas loader does NOT put the JSON in cache.json —
+        // frame names must come from the TextureManager.
+        const tex = this.textures.get(key);
+        const names: string[] = (tex && typeof (tex as unknown as { getFrameNames?: unknown }).getFrameNames === 'function')
+          ? (tex as unknown as { getFrameNames(): string[] }).getFrameNames() : [];
+        const frames: Record<string, unknown> = {};
+        for (const n of names) frames[n] = true;
+        registerAtlasFrames(key, frames);
       }
     ctx.audio = new AudioMan(this);
     void this.finishBoot();
