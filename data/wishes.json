@@ -1,0 +1,2176 @@
+{
+  "wishes": [
+    {
+      "id": "wish_001",
+      "spirit": "spirit-moss-keeper",
+      "text": "Ah, a young gardener returns. The soil remembers you.",
+      "requires": [
+        {
+          "plant": "sylvani_t1",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 20,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_002",
+      "spirit": "spirit-dusk-moth",
+      "text": "Mmm... five more minutes... oh, a wish? Fine, fine.",
+      "requires": [
+        {
+          "plant": "prism_t1",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 30,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_003",
+      "spirit": "spirit-star-wisp",
+      "text": "Hi hi hi! A wish! I LOVE wishes! What do you need?!",
+      "requires": [
+        {
+          "plant": "sylvani_t1",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 40,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_004",
+      "spirit": "spirit-bramble",
+      "text": "Hmph. Another wish? Fine. Make it worth my thorns.",
+      "requires": [
+        {
+          "plant": "prism_t1",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 50,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_005",
+      "spirit": "spirit-ember-wisp",
+      "text": "Come closer, gardener. I do not bite. I barely even flicker.",
+      "requires": [
+        {
+          "plant": "sylvani_t1",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 60,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_006",
+      "spirit": "spirit-nightchoir",
+      "text": "We sing, and the garden listens. Bring us an offering.",
+      "requires": [
+        {
+          "plant": "prism_t1",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 70,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": "prism_t2"
+    },
+    {
+      "id": "wish_007",
+      "spirit": "spirit-thorn",
+      "text": "Patience, little one. Even moonlight takes its time.",
+      "requires": [
+        {
+          "plant": "sylvani_t1",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 80,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_008",
+      "spirit": "spirit-crystal-wisp",
+      "text": "I dreamed your garden last night. It was purple. Bring purple.",
+      "requires": [
+        {
+          "plant": "prism_t1",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 90,
+        "stardust": 0,
+        "renown": 1
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_009",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I raced a comet once. I won. Anyway, petals please!",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 100,
+        "stardust": 0,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_010",
+      "spirit": "spirit-petal-dancer",
+      "text": "I do not do \u2018cozy\u2019. I do trades. Bring the plants.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 110,
+        "stardust": 0,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_011",
+      "spirit": "spirit-root-guardian",
+      "text": "I have burned low for a hundred years. Your garden keeps me warm.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 120,
+        "stardust": 2,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_012",
+      "spirit": "spirit-gloom-batling",
+      "text": "Laaa... your wish joins our round. Do you hear it?",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 130,
+        "stardust": 2,
+        "renown": 2
+      },
+      "cutting": "prism_t3"
+    },
+    {
+      "id": "wish_013",
+      "spirit": "spirit-moss-keeper",
+      "text": "I have watched ten thousand sprouts. Yours are the stubbornest.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 140,
+        "stardust": 3,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_014",
+      "spirit": "spirit-dusk-moth",
+      "text": "Twilight is when the flowers tell the truth. Listen.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 150,
+        "stardust": 3,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_015",
+      "spirit": "spirit-star-wisp",
+      "text": "Twinkle-twinkle! Your garden is getting SO shiny!",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 160,
+        "stardust": 4,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_016",
+      "spirit": "spirit-bramble",
+      "text": "Soft gardeners, hard bargains. That is the rule.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 170,
+        "stardust": 4,
+        "renown": 2
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_017",
+      "spirit": "spirit-ember-wisp",
+      "text": "A little warmth goes a long way on a cold twilight.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 180,
+        "stardust": 5,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_018",
+      "spirit": "spirit-nightchoir",
+      "text": "We are many voices, one hunger. Petals, gardener.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 190,
+        "stardust": 5,
+        "renown": 3
+      },
+      "cutting": "prism_t4"
+    },
+    {
+      "id": "wish_019",
+      "spirit": "spirit-thorn",
+      "text": "Bring me what I ask, and I will tell you a root-secret.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 200,
+        "stardust": 6,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_020",
+      "spirit": "spirit-crystal-wisp",
+      "text": "My wings are dusty with stardust. Yours could be too.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 210,
+        "stardust": 6,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_021",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I can hold my breath for a whole meteor shower. Watch\u2014",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 220,
+        "stardust": 7,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_022",
+      "spirit": "spirit-petal-dancer",
+      "text": "You again. Good. I was getting bored of the quiet.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 230,
+        "stardust": 7,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_023",
+      "spirit": "spirit-root-guardian",
+      "text": "Bring me something lovely, and I will glow a little brighter.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 240,
+        "stardust": 8,
+        "renown": 3
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_024",
+      "spirit": "spirit-gloom-batling",
+      "text": "The night blooms when we sing. Sing with us\u2014 bring flowers.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 250,
+        "stardust": 8,
+        "renown": 3
+      },
+      "cutting": "prism_t4"
+    },
+    {
+      "id": "wish_025",
+      "spirit": "spirit-moss-keeper",
+      "text": "The old roots whisper your name. They like you.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 260,
+        "stardust": 10,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_026",
+      "spirit": "spirit-dusk-moth",
+      "text": "Shhh. The nightchoir is tuning. Bring me something quiet.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 280,
+        "stardust": 11,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_027",
+      "spirit": "spirit-star-wisp",
+      "text": "The stars sent me down with a list. Your name is on it!",
+      "requires": [
+        {
+          "plant": "dusk_t2",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 295,
+        "stardust": 12,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_028",
+      "spirit": "spirit-bramble",
+      "text": "My thorns have seen things. Your sprouts are... adequate.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 315,
+        "stardust": 13,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_029",
+      "spirit": "spirit-ember-wisp",
+      "text": "I remember every hearth I ever lit. Yours is my favorite.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 330,
+        "stardust": 14,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_030",
+      "spirit": "spirit-nightchoir",
+      "text": "Soprano asks for starlight. Alto asks for roots. We ask for both.",
+      "requires": [
+        {
+          "plant": "dusk_t2",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 350,
+        "stardust": 15,
+        "renown": 4
+      },
+      "cutting": "dusk_t3"
+    },
+    {
+      "id": "wish_031",
+      "spirit": "spirit-thorn",
+      "text": "A garden is just a promise you keep watering.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 370,
+        "stardust": 16,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_032",
+      "spirit": "spirit-crystal-wisp",
+      "text": "I collect dusk in my pockets. Trade you some for petals.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 385,
+        "stardust": 17,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_033",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Faster! Merge faster! The sky is waiting!",
+      "requires": [
+        {
+          "plant": "dusk_t2",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 405,
+        "stardust": 18,
+        "renown": 4
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_034",
+      "spirit": "spirit-petal-dancer",
+      "text": "Do not mistake my grumbling for dislike. It is just... grumbling.",
+      "requires": [
+        {
+          "plant": "sylvani_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 420,
+        "stardust": 19,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_035",
+      "spirit": "spirit-root-guardian",
+      "text": "Do not worry about me. Worry about your watering schedule.",
+      "requires": [
+        {
+          "plant": "prism_t2",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 440,
+        "stardust": 20,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_036",
+      "spirit": "spirit-gloom-batling",
+      "text": "Hush now. The verse is beginning. Your offering is the chorus.",
+      "requires": [
+        {
+          "plant": "dusk_t2",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 460,
+        "stardust": 21,
+        "renown": 5
+      },
+      "cutting": "dusk_t3"
+    },
+    {
+      "id": "wish_037",
+      "spirit": "spirit-moss-keeper",
+      "text": "I once knew a fern that outlived a mountain. Yours could too.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 475,
+        "stardust": 22,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_038",
+      "spirit": "spirit-dusk-moth",
+      "text": "Half asleep, fully hungry. You know the drill.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 495,
+        "stardust": 23,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_039",
+      "spirit": "spirit-star-wisp",
+      "text": "I polished three constellations today. Reward me with blooms!",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 510,
+        "stardust": 24,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_040",
+      "spirit": "spirit-bramble",
+      "text": "A fair trade, thorn for petal. No hugging.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 530,
+        "stardust": 25,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_041",
+      "spirit": "spirit-ember-wisp",
+      "text": "Embers never truly die. They just... wait. Like me.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 550,
+        "stardust": 26,
+        "renown": 5
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_042",
+      "spirit": "spirit-nightchoir",
+      "text": "We sang your garden into being. We remember every note.",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 565,
+        "stardust": 27,
+        "renown": 5
+      },
+      "cutting": "dusk_t4"
+    },
+    {
+      "id": "wish_043",
+      "spirit": "spirit-thorn",
+      "text": "Do not rush the bloom. The bloom knows when.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 585,
+        "stardust": 28,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_044",
+      "spirit": "spirit-crystal-wisp",
+      "text": "The moon asked about you. I said you were doing fine.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 600,
+        "stardust": 29,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_045",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Did you know my sparkle is 100% organic? It is now.",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 620,
+        "stardust": 30,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_046",
+      "spirit": "spirit-petal-dancer",
+      "text": "I guarded this grove before you were a seedling. Respect.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 640,
+        "stardust": 31,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_047",
+      "spirit": "spirit-root-guardian",
+      "text": "Your wish is safe with me. I keep them all, glowing.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 655,
+        "stardust": 32,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_048",
+      "spirit": "spirit-gloom-batling",
+      "text": "A wish in harmony is worth ten alone. Bring us yours.",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 675,
+        "stardust": 33,
+        "renown": 6
+      },
+      "cutting": "dusk_t4"
+    },
+    {
+      "id": "wish_049",
+      "spirit": "spirit-moss-keeper",
+      "text": "My moss has grown over three fallen stars. Mind where you step.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 690,
+        "stardust": 34,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_050",
+      "spirit": "spirit-dusk-moth",
+      "text": "Dreams are just wishes that got tired. Feed me anyway.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 710,
+        "stardust": 35,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_051",
+      "spirit": "spirit-star-wisp",
+      "text": "Wishes are my favorite food. Second favorite: compliments.",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 730,
+        "stardust": 36,
+        "renown": 6
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_052",
+      "spirit": "spirit-bramble",
+      "text": "Tough soil makes tough flowers. You are doing fine. Do not tell anyone I said that.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 745,
+        "stardust": 37,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_053",
+      "spirit": "spirit-ember-wisp",
+      "text": "A warm wish for a warm heart. That is the trade.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 765,
+        "stardust": 38,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_054",
+      "spirit": "spirit-nightchoir",
+      "text": "We do not sleep. We rehearse. The dawn is our deadline.",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 780,
+        "stardust": 39,
+        "renown": 7
+      },
+      "cutting": "dusk_t5"
+    },
+    {
+      "id": "wish_055",
+      "spirit": "spirit-thorn",
+      "text": "Every weed you pulled taught the soil something. Thank you.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 800,
+        "stardust": 40,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_056",
+      "spirit": "spirit-crystal-wisp",
+      "text": "I flew over your grove at dusk. Lovely. Needs more velvet.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 820,
+        "stardust": 41,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_057",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I blinked and your fern grew! Do it again!",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 835,
+        "stardust": 42,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_058",
+      "spirit": "spirit-petal-dancer",
+      "text": "Hurry up. My patience has thorns too.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 855,
+        "stardust": 43,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_059",
+      "spirit": "spirit-root-guardian",
+      "text": "I hum old fire-songs when no one listens. You may listen.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 3
+        },
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 870,
+        "stardust": 44,
+        "renown": 7
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_060",
+      "spirit": "spirit-gloom-batling",
+      "text": "Minor key tonight. Bring something to cheer the basses.",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 4
+        },
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 890,
+        "stardust": 45,
+        "renown": 7
+      },
+      "cutting": "dusk_t5"
+    },
+    {
+      "id": "wish_061",
+      "spirit": "spirit-moss-keeper",
+      "text": "The twilight deepens, and so does my hunger for petals.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 920,
+        "stardust": 50,
+        "renown": 8
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_062",
+      "spirit": "spirit-dusk-moth",
+      "text": "Yawn... oh! A gardener! What did I promise? Something.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 980,
+        "stardust": 53,
+        "renown": 8
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_063",
+      "spirit": "spirit-star-wisp",
+      "text": "The big dipper says hello. It wants a cutting.",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 1040,
+        "stardust": 56,
+        "renown": 8
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_064",
+      "spirit": "spirit-bramble",
+      "text": "I like you, gardener. There. I said it. Moving on.",
+      "requires": [
+        {
+          "plant": "astral_t3",
+          "count": 2
+        },
+        {
+          "plant": "prism_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1100,
+        "stardust": 59,
+        "renown": 8
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_065",
+      "spirit": "spirit-ember-wisp",
+      "text": "The cold creeps in at dusk. Your blooms push it back.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 1160,
+        "stardust": 62,
+        "renown": 8
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_066",
+      "spirit": "spirit-nightchoir",
+      "text": "Your merges make a lovely rhythm. Keep the beat, gardener.",
+      "requires": [
+        {
+          "plant": "prism_t3",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 1220,
+        "stardust": 65,
+        "renown": 8
+      },
+      "cutting": "prism_t4"
+    },
+    {
+      "id": "wish_067",
+      "spirit": "spirit-thorn",
+      "text": "You plant with your hands. I plant with centuries.",
+      "requires": [
+        {
+          "plant": "dusk_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1280,
+        "stardust": 68,
+        "renown": 9
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_068",
+      "spirit": "spirit-crystal-wisp",
+      "text": "The dark is not empty, you know. It is full of almost-flowers.",
+      "requires": [
+        {
+          "plant": "astral_t3",
+          "count": 3
+        },
+        {
+          "plant": "prism_t2",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1340,
+        "stardust": 71,
+        "renown": 9
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_069",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Zoom! That is the sound of me delivering your reward.",
+      "requires": [
+        {
+          "plant": "sylvani_t3",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 1400,
+        "stardust": 74,
+        "renown": 9
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_070",
+      "spirit": "spirit-petal-dancer",
+      "text": "Bring me the strong ones. The weak ones I... also accept. Quietly.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1460,
+        "stardust": 77,
+        "renown": 9
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_071",
+      "spirit": "spirit-root-guardian",
+      "text": "Small flame, big promises. That has always been me.",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 1520,
+        "stardust": 80,
+        "renown": 9
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_072",
+      "spirit": "spirit-gloom-batling",
+      "text": "We traded verses with the wind. It wants a cutting too.",
+      "requires": [
+        {
+          "plant": "astral_t4",
+          "count": 4
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1580,
+        "stardust": 83,
+        "renown": 9
+      },
+      "cutting": "astral_t5"
+    },
+    {
+      "id": "wish_073",
+      "spirit": "spirit-moss-keeper",
+      "text": "A secret: the shadiest corner grows the bravest flowers.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1640,
+        "stardust": 86,
+        "renown": 10
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_074",
+      "spirit": "spirit-dusk-moth",
+      "text": "Bring me dusk-born blooms and I will dream you a good omen.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 1700,
+        "stardust": 89,
+        "renown": 10
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_075",
+      "spirit": "spirit-star-wisp",
+      "text": "I am small but my wishes are ENORMOUS.",
+      "requires": [
+        {
+          "plant": "dusk_t4",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 1760,
+        "stardust": 92,
+        "renown": 10
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_076",
+      "spirit": "spirit-bramble",
+      "text": "Every bramble was once a soft shoot. Remember that.",
+      "requires": [
+        {
+          "plant": "astral_t4",
+          "count": 2
+        },
+        {
+          "plant": "prism_t3",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 1820,
+        "stardust": 95,
+        "renown": 10
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_077",
+      "spirit": "spirit-ember-wisp",
+      "text": "I saved a spark from the first star. It is yours now.",
+      "requires": [
+        {
+          "plant": "sylvani_t4",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 1880,
+        "stardust": 98,
+        "renown": 10
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_078",
+      "spirit": "spirit-nightchoir",
+      "text": "Crescendo! Your garden swells! Our favorite movement.",
+      "requires": [
+        {
+          "plant": "prism_t4",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 1940,
+        "stardust": 101,
+        "renown": 10
+      },
+      "cutting": "prism_t5"
+    },
+    {
+      "id": "wish_079",
+      "spirit": "spirit-thorn",
+      "text": "I counted your merges last night. Impressive, for a mayfly.",
+      "requires": [
+        {
+          "plant": "dusk_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2000,
+        "stardust": 104,
+        "renown": 11
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_080",
+      "spirit": "spirit-crystal-wisp",
+      "text": "I nap through noon. Twilight is my morning. Good morning.",
+      "requires": [
+        {
+          "plant": "astral_t5",
+          "count": 3
+        },
+        {
+          "plant": "prism_t4",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2060,
+        "stardust": 107,
+        "renown": 11
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_081",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Count the stars with me later. First, the offering!",
+      "requires": [
+        {
+          "plant": "sylvani_t5",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 2120,
+        "stardust": 110,
+        "renown": 11
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_082",
+      "spirit": "spirit-petal-dancer",
+      "text": "I will trade fair. My bark is worse than my bite. Usually.",
+      "requires": [
+        {
+          "plant": "prism_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2180,
+        "stardust": 113,
+        "renown": 11
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_083",
+      "spirit": "spirit-root-guardian",
+      "text": "Gently, gently. Even wishes can singe if rushed.",
+      "requires": [
+        {
+          "plant": "dusk_t5",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 2240,
+        "stardust": 116,
+        "renown": 11
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_084",
+      "spirit": "spirit-gloom-batling",
+      "text": "Every petal is a note. Bring us a whole symphony.",
+      "requires": [
+        {
+          "plant": "astral_t5",
+          "count": 4
+        },
+        {
+          "plant": "prism_t4",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2300,
+        "stardust": 119,
+        "renown": 11
+      },
+      "cutting": "astral_t6"
+    },
+    {
+      "id": "wish_085",
+      "spirit": "spirit-moss-keeper",
+      "text": "Bring the offering. The earth is listening.",
+      "requires": [
+        {
+          "plant": "sylvani_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2360,
+        "stardust": 122,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_086",
+      "spirit": "spirit-dusk-moth",
+      "text": "My antennae tingle. That means a wish is near. Or hunger.",
+      "requires": [
+        {
+          "plant": "prism_t5",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 2420,
+        "stardust": 125,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_087",
+      "spirit": "spirit-star-wisp",
+      "text": "My glow got brighter! That means you are doing great!",
+      "requires": [
+        {
+          "plant": "dusk_t5",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 2480,
+        "stardust": 128,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_088",
+      "spirit": "spirit-bramble",
+      "text": "The night is cold. Your garden is warm. Keep it that way.",
+      "requires": [
+        {
+          "plant": "astral_t6",
+          "count": 2
+        },
+        {
+          "plant": "prism_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 2540,
+        "stardust": 131,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_089",
+      "spirit": "spirit-ember-wisp",
+      "text": "You remind me of spring. I have not seen spring in ages.",
+      "requires": [
+        {
+          "plant": "sylvani_t6",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 2600,
+        "stardust": 134,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_090",
+      "spirit": "spirit-nightchoir",
+      "text": "We sing for the moon. The moon sings back. You bring snacks.",
+      "requires": [
+        {
+          "plant": "hybrid_1",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2660,
+        "stardust": 137,
+        "renown": 12
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_091",
+      "spirit": "spirit-thorn",
+      "text": "Old as I am, your garden still surprises me.",
+      "requires": [
+        {
+          "plant": "hybrid_2",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2720,
+        "stardust": 140,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_092",
+      "spirit": "spirit-crystal-wisp",
+      "text": "Softly now. The petals bruise if you wish too loudly.",
+      "requires": [
+        {
+          "plant": "hybrid_3",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2780,
+        "stardust": 143,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_093",
+      "spirit": "spirit-mooncap-elder",
+      "text": "I dared the moon to a staring contest. Bring snacks\u2014 I mean, blooms.",
+      "requires": [
+        {
+          "plant": "hybrid_4",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2840,
+        "stardust": 146,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_094",
+      "spirit": "spirit-petal-dancer",
+      "text": "Stop smiling. It is... fine. Keep smiling.",
+      "requires": [
+        {
+          "plant": "hybrid_1",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2900,
+        "stardust": 149,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_095",
+      "spirit": "spirit-root-guardian",
+      "text": "Keep me near your heart, gardener, and I will keep you warm.",
+      "requires": [
+        {
+          "plant": "hybrid_2",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 2960,
+        "stardust": 152,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_096",
+      "spirit": "spirit-gloom-batling",
+      "text": "Round and round the wish goes. Where it stops, we bloom.",
+      "requires": [
+        {
+          "plant": "hybrid_3",
+          "count": 1
+        }
+      ],
+      "rewards": {
+        "moondew": 3020,
+        "stardust": 155,
+        "renown": 13
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_097",
+      "spirit": "spirit-moss-keeper",
+      "text": "Roots first, glory later. That is the whole law.",
+      "requires": [
+        {
+          "plant": "sylvani_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 3100,
+        "stardust": 160,
+        "renown": 14
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_098",
+      "spirit": "spirit-dusk-moth",
+      "text": "I traded a secret to the moon for you. It cost me a nap.",
+      "requires": [
+        {
+          "plant": "prism_t5",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 3350,
+        "stardust": 178,
+        "renown": 14
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_099",
+      "spirit": "spirit-star-wisp",
+      "text": "Every wish you make adds a star somewhere. Probably.",
+      "requires": [
+        {
+          "plant": "hybrid_3",
+          "count": 1
+        },
+        {
+          "plant": "dusk_t5",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 3600,
+        "stardust": 196,
+        "renown": 15
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_100",
+      "spirit": "spirit-bramble",
+      "text": "I have tangled with storms. Your wishes are easy by comparison.",
+      "requires": [
+        {
+          "plant": "astral_t5",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 3850,
+        "stardust": 214,
+        "renown": 15
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_101",
+      "spirit": "spirit-ember-wisp",
+      "text": "Every petal you bring feeds my little light. Thank you.",
+      "requires": [
+        {
+          "plant": "sylvani_t5",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 4100,
+        "stardust": 232,
+        "renown": 16
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_102",
+      "spirit": "spirit-nightchoir",
+      "text": "The quiet between notes is where wishes hide. Listen.",
+      "requires": [
+        {
+          "plant": "hybrid_6",
+          "count": 1
+        },
+        {
+          "plant": "prism_t5",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 4350,
+        "stardust": 250,
+        "renown": 16
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_103",
+      "spirit": "spirit-thorn",
+      "text": "I remember when this haven was one sad seed. Look at it now.",
+      "requires": [
+        {
+          "plant": "dusk_t6",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 4600,
+        "stardust": 268,
+        "renown": 17
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_104",
+      "spirit": "spirit-crystal-wisp",
+      "text": "Dusk is the garden\u2019s eyelid, closing. Beautiful, no?",
+      "requires": [
+        {
+          "plant": "astral_t6",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 4850,
+        "stardust": 286,
+        "renown": 17
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_105",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Wheee! Another one! You are on a roll, gardener!",
+      "requires": [
+        {
+          "plant": "hybrid_1",
+          "count": 1
+        },
+        {
+          "plant": "sylvani_t6",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 5100,
+        "stardust": 304,
+        "renown": 18
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_106",
+      "spirit": "spirit-petal-dancer",
+      "text": "A bramble\u2019s promise is root-deep. I will keep mine.",
+      "requires": [
+        {
+          "plant": "prism_t6",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 5350,
+        "stardust": 322,
+        "renown": 18
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_107",
+      "spirit": "spirit-root-guardian",
+      "text": "I am not much, but I am yours. That is enough.",
+      "requires": [
+        {
+          "plant": "dusk_t6",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 5600,
+        "stardust": 340,
+        "renown": 19
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_108",
+      "spirit": "spirit-gloom-batling",
+      "text": "Encore! Encore! The garden demands another wish!",
+      "requires": [
+        {
+          "plant": "hybrid_4",
+          "count": 1
+        },
+        {
+          "plant": "astral_t6",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 5850,
+        "stardust": 358,
+        "renown": 19
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_109",
+      "spirit": "spirit-moss-keeper",
+      "text": "The moss keeps your footprints. Walk gently, gardener.",
+      "requires": [
+        {
+          "plant": "sylvani_t7",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 6100,
+        "stardust": 376,
+        "renown": 20
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_110",
+      "spirit": "spirit-dusk-moth",
+      "text": "One day I will sleep through a whole century. Not today.",
+      "requires": [
+        {
+          "plant": "prism_t7",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 6350,
+        "stardust": 394,
+        "renown": 20
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_111",
+      "spirit": "spirit-star-wisp",
+      "text": "I wrapped your reward in moonlight. Do not shake it.",
+      "requires": [
+        {
+          "plant": "hybrid_7",
+          "count": 1
+        },
+        {
+          "plant": "dusk_t7",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 6600,
+        "stardust": 412,
+        "renown": 21
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_112",
+      "spirit": "spirit-bramble",
+      "text": "You bring the blooms, I bring the protection. Deal.",
+      "requires": [
+        {
+          "plant": "astral_t7",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 6850,
+        "stardust": 430,
+        "renown": 21
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_113",
+      "spirit": "spirit-ember-wisp",
+      "text": "The night is long, but so is my patience.",
+      "requires": [
+        {
+          "plant": "sylvani_t7",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 7100,
+        "stardust": 448,
+        "renown": 22
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_114",
+      "spirit": "spirit-nightchoir",
+      "text": "We will remember your name in song long after the stars fade.",
+      "requires": [
+        {
+          "plant": "hybrid_2",
+          "count": 1
+        },
+        {
+          "plant": "prism_t7",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 7350,
+        "stardust": 466,
+        "renown": 22
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_115",
+      "spirit": "spirit-thorn",
+      "text": "One more wish, and I shall nap for a hundred years. Make it good.",
+      "requires": [
+        {
+          "plant": "dusk_t8",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 7600,
+        "stardust": 484,
+        "renown": 23
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_116",
+      "spirit": "spirit-crystal-wisp",
+      "text": "Last wish of the evening? Make it a velvet one.",
+      "requires": [
+        {
+          "plant": "astral_t8",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 7850,
+        "stardust": 502,
+        "renown": 23
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_117",
+      "spirit": "spirit-mooncap-elder",
+      "text": "Okay okay okay\u2014 one more wish and then I nap. MAYBE.",
+      "requires": [
+        {
+          "plant": "hybrid_5",
+          "count": 1
+        },
+        {
+          "plant": "sylvani_t8",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 8100,
+        "stardust": 520,
+        "renown": 24
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_118",
+      "spirit": "spirit-petal-dancer",
+      "text": "Last one. Make it count, soft-heart.",
+      "requires": [
+        {
+          "plant": "prism_t8",
+          "count": 2
+        }
+      ],
+      "rewards": {
+        "moondew": 8350,
+        "stardust": 538,
+        "renown": 24
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_119",
+      "spirit": "spirit-root-guardian",
+      "text": "One last glow, one last wish. Make it a warm one.",
+      "requires": [
+        {
+          "plant": "dusk_t8",
+          "count": 3
+        }
+      ],
+      "rewards": {
+        "moondew": 8600,
+        "stardust": 556,
+        "renown": 25
+      },
+      "cutting": null
+    },
+    {
+      "id": "wish_120",
+      "spirit": "spirit-gloom-batling",
+      "text": "Final verse, gardener. Make it bloom.",
+      "requires": [
+        {
+          "plant": "hybrid_8",
+          "count": 1
+        },
+        {
+          "plant": "astral_t8",
+          "count": 4
+        }
+      ],
+      "rewards": {
+        "moondew": 8850,
+        "stardust": 574,
+        "renown": 25
+      },
+      "cutting": null
+    }
+  ]
+}
