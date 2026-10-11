@@ -1,0 +1,1 @@
+{"compilerOptions":{"module":"NodeNext","moduleResolution":"NodeNext","noUncheckedIndexedAccess":true,"outDir":"build-test","resolveJsonModule":true,"rootDir":".","skipLibCheck":true,"strict":true,"target":"ES2020","types":["node"]},"include":["src/sim.ts","src/data.ts","test/**/*.ts","data/*.json"]}

@@ -1,0 +1,1 @@
+{"compilerOptions":{"module":"ESNext","moduleResolution":"bundler","noFallthroughCasesInSwitch":true,"noUncheckedIndexedAccess":true,"outDir":"build-app","resolveJsonModule":true,"rootDir":"src","skipLibCheck":true,"strict":true,"target":"ES2020","types":[]},"include":["src"]}

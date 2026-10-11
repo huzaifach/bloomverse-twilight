@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="theme-color" content="#12101D" />
+<title>Bloomverse: Twilight Haven</title>
+<style>
+  @font-face { font-family: 'CinzelDecorative'; src: url('./assets/fonts/CinzelDecorative-700.ttf'); font-weight: 700; }
+  @font-face { font-family: 'CinzelDecorative'; src: url('./assets/fonts/CinzelDecorative-900.ttf'); font-weight: 900; }
+  @font-face { font-family: 'Baloo2'; src: url('./assets/fonts/Baloo2-600.ttf'); font-weight: 600; }
+  @font-face { font-family: 'Baloo2'; src: url('./assets/fonts/Baloo2-800.ttf'); font-weight: 800; }
+  @font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-400.ttf'); font-weight: 400; }
+  @font-face { font-family: 'Nunito'; src: url('./assets/fonts/Nunito-700.ttf'); font-weight: 700; }
+  @font-face { font-family: 'Fredoka'; src: url('./assets/fonts/Fredoka-500.ttf'); font-weight: 500; }
+  @font-face { font-family: 'Fredoka'; src: url('./assets/fonts/Fredoka-700.ttf'); font-weight: 700; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden; background: #12101D;
+    touch-action: none; overscroll-behavior: none;
+    -webkit-user-select: none; user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Nunito', sans-serif;
+  }
+  #game { width: 100vw; height: 100dvh; }
+  #game canvas { display: block; }
+  #rotate-hint {
+    display: none; position: fixed; inset: 0; z-index: 50;
+    background: #12101D; color: #F5E6C8; align-items: center; justify-content: center;
+    font-family: 'Baloo2', sans-serif; font-size: 20px; text-align: center; padding: 32px;
+  }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="rotate-hint">🌙 Twilight Haven is best in portrait — please rotate your device</div>
+<script type="module" src="./src/main.ts"></script>
+</body>
+</html>

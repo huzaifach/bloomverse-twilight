@@ -1,0 +1,175 @@
+{
+  "lines": [
+    {
+      "id": "raincaller",
+      "name": "Raincaller Charm",
+      "desc": "A storm-bell charm that hurries the wish-pods along. Each level cuts pod cooldown by 4%.",
+      "levels": [
+        {
+          "level": 1,
+          "costMoondew": 100,
+          "effectPct": 4
+        },
+        {
+          "level": 2,
+          "costMoondew": 150,
+          "effectPct": 8
+        },
+        {
+          "level": 3,
+          "costMoondew": 225,
+          "effectPct": 12
+        },
+        {
+          "level": 4,
+          "costMoondew": 338,
+          "effectPct": 16
+        },
+        {
+          "level": 5,
+          "costMoondew": 506,
+          "effectPct": 20
+        },
+        {
+          "level": 6,
+          "costMoondew": 759,
+          "effectPct": 24
+        },
+        {
+          "level": 7,
+          "costMoondew": 1139,
+          "effectPct": 28
+        },
+        {
+          "level": 8,
+          "costMoondew": 1709,
+          "effectPct": 32
+        },
+        {
+          "level": 9,
+          "costMoondew": 2563,
+          "effectPct": 36
+        },
+        {
+          "level": 10,
+          "costMoondew": 3844,
+          "effectPct": 40
+        }
+      ]
+    },
+    {
+      "id": "moths",
+      "name": "Moon Moths",
+      "desc": "A loyal flutter of moon moths that dust every harvest with extra moondew. Each level raises grove yield by 8%.",
+      "levels": [
+        {
+          "level": 1,
+          "costMoondew": 150,
+          "effectPct": 8
+        },
+        {
+          "level": 2,
+          "costMoondew": 240,
+          "effectPct": 16
+        },
+        {
+          "level": 3,
+          "costMoondew": 384,
+          "effectPct": 24
+        },
+        {
+          "level": 4,
+          "costMoondew": 614,
+          "effectPct": 32
+        },
+        {
+          "level": 5,
+          "costMoondew": 983,
+          "effectPct": 40
+        },
+        {
+          "level": 6,
+          "costMoondew": 1573,
+          "effectPct": 48
+        },
+        {
+          "level": 7,
+          "costMoondew": 2517,
+          "effectPct": 56
+        },
+        {
+          "level": 8,
+          "costMoondew": 4027,
+          "effectPct": 64
+        },
+        {
+          "level": 9,
+          "costMoondew": 6442,
+          "effectPct": 72
+        },
+        {
+          "level": 10,
+          "costMoondew": 10308,
+          "effectPct": 80
+        }
+      ]
+    },
+    {
+      "id": "starpots",
+      "name": "Star Pots",
+      "desc": "Clay pots glazed with crushed starlight. Each level raises pot capacity and yield by 6%.",
+      "levels": [
+        {
+          "level": 1,
+          "costMoondew": 120,
+          "effectPct": 6
+        },
+        {
+          "level": 2,
+          "costMoondew": 186,
+          "effectPct": 12
+        },
+        {
+          "level": 3,
+          "costMoondew": 288,
+          "effectPct": 18
+        },
+        {
+          "level": 4,
+          "costMoondew": 447,
+          "effectPct": 24
+        },
+        {
+          "level": 5,
+          "costMoondew": 693,
+          "effectPct": 30
+        },
+        {
+          "level": 6,
+          "costMoondew": 1074,
+          "effectPct": 36
+        },
+        {
+          "level": 7,
+          "costMoondew": 1664,
+          "effectPct": 42
+        },
+        {
+          "level": 8,
+          "costMoondew": 2579,
+          "effectPct": 48
+        },
+        {
+          "level": 9,
+          "costMoondew": 3998,
+          "effectPct": 54
+        },
+        {
+          "level": 10,
+          "costMoondew": 6197,
+          "effectPct": 60
+        }
+      ]
+    }
+  ]
+}
