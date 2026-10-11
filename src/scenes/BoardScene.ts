@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { audio, coverBg, data, lay, state } from '../ctx.js';
+import { audio, coverBg, data, lay, needBg, state } from '../ctx.js';
+import { attachDebug } from '../debug.js';
 import { BOARD_N, PALETTE } from '../config.js';
 import { applyCommand, Cell, spawnCost } from '../sim.js';
 import { plantById } from '../data.js';
@@ -43,6 +44,11 @@ export class BoardScene extends Phaser.Scene {
 
   constructor() { super('board'); }
 
+  preload(): void {
+    needBg(this, 'bg-board-far');
+    needBg(this, 'bg-board-mid');
+  }
+
   create(): void {
     const { w, h, cx } = lay(this);
     coverBg(this, 'bg-board-mid');
@@ -58,6 +64,7 @@ export class BoardScene extends Phaser.Scene {
 
     this.renderBoard();
     this.refreshHud();
+    attachDebug(this);
 
     // tutorial
     const s = state();
@@ -65,7 +72,9 @@ export class BoardScene extends Phaser.Scene {
       tutorialStep(this, s.tutorialStep, () => {
         applyCommand(data(), s, { type: 'advanceTutorial', now: Date.now() });
         saveGame(s);
-        if (s.tutorialStep < 7) this.scene.restart();
+        // Always restart: on the final step this re-runs create() with
+        // tutorialStep >= 7, which registers board input below.
+        this.scene.restart();
       });
       return;
     }
@@ -86,20 +95,21 @@ export class BoardScene extends Phaser.Scene {
 
   private buildHud(w: number): void {
     const s = state();
-    const y = 44;
+    const y = 42;
+    // 420px design canvas: pills + gear must fit 0–420.
     this.pills = {
-      moondew: new Pill(this, 'icon-moondew.png', 190),
-      stardust: new Pill(this, 'icon-stardust.png', 170),
-      renown: new Pill(this, 'icon-renown.png', 170),
+      moondew: new Pill(this, 'icon-moondew.png', 140),
+      stardust: new Pill(this, 'icon-stardust.png', 118),
+      renown: new Pill(this, 'icon-renown.png', 92),
     };
-    this.pills.moondew.setPosition(110, y);
-    this.pills.stardust.setPosition(315, y);
-    this.pills.renown.setPosition(500, y);
-    const gear = iconButton(this, 'icon-gear.png', 72, () => {
+    this.pills.moondew.setPosition(78, y);
+    this.pills.stardust.setPosition(212, y);
+    this.pills.renown.setPosition(313, y);
+    const gear = iconButton(this, 'icon-gear.png', 52, () => {
       audio().play('click');
       openSettings(this, () => this.refreshHud());
     });
-    gear.setPosition(w - 52, y);
+    gear.setPosition(w - 30, y);
     void s;
   }
 
@@ -142,9 +152,9 @@ export class BoardScene extends Phaser.Scene {
     this.podBtn.add([pod, this.podLabel]);
     pod.setInteractive({ useHandCursor: true });
     pod.on('pointerup', () => this.trySpawn());
-    // nav
+    // nav (420px canvas: 4 items fit 0–420)
     const mk = (i: number, label: string, icon: string, go: string, active: boolean) => {
-      const b = this.add.container(cx - 195 + i * 130, y).setDepth(10);
+      const b = this.add.container(cx - 157.5 + i * 105, y).setDepth(10);
       const bg = this.add.circle(0, -14, 40, active ? PALETTE.ember : 0x2a2438, active ? 1 : 0.85);
       const ic = img(this, icon).setDisplaySize(52, 52).setPosition(0, -14);
       const lb = this.add.text(0, 34, label, {

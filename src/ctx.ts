@@ -36,3 +36,13 @@ export function coverBg(scene: Phaser.Scene, key: string): Phaser.GameObjects.Im
   bg.setScale(s).setDepth(-10);
   return bg;
 }
+
+/**
+ * Queue a background for lazy loading in a scene's preload().
+ * Backgrounds are NOT preloaded at boot (keeps initial load light);
+ * each scene ensures its own art before create().
+ */
+export function needBg(scene: Phaser.Scene, key: string): void {
+  if (!scene.textures.exists(key))
+    scene.load.image(key, `assets/backgrounds/${key}.webp`);
+}

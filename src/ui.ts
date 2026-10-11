@@ -47,9 +47,11 @@ export interface ButtonOpts {
   font?: string; color?: string;
 }
 
-/** Chunky amber button with press squash. */
+/** Chunky amber button with press squash.
+ * Uses an EXPLICIT hit-area (NineSlice auto hit-areas are unreliable) and
+ * fires on pointerup; pass fireOnDown for instant response (tutorial). */
 export function button(scene: Phaser.Scene, label: string,
-                       cb: () => void, o: ButtonOpts = {}): Phaser.GameObjects.Container {
+                       cb: () => void, o: ButtonOpts & { fireOnDown?: boolean } = {}): Phaser.GameObjects.Container {
   const w = o.w ?? 280, h = o.h ?? 96;
   const c = scene.add.container(0, 0);
   const [t, f] = tex('button-amber.png');
@@ -59,9 +61,12 @@ export function button(scene: Phaser.Scene, label: string,
     color: o.color ?? '#3A2410', fontStyle: '800',
   }).setOrigin(0.5);
   c.add([bg, txt]);
-  bg.setInteractive({ useHandCursor: true });
-  bg.on('pointerdown', () => c.setScale(0.94));
-  bg.on('pointerup', () => { c.setScale(1); cb(); });
+  const fire = (): void => { c.setScale(1); cb(); };
+  bg.setInteractive(new Phaser.Geom.Rectangle(-w / 2, -h / 2, w, h),
+    Phaser.Geom.Rectangle.Contains);
+  if (bg.input) bg.input.cursor = 'pointer';
+  bg.on('pointerdown', () => { c.setScale(0.94); if (o.fireOnDown) fire(); });
+  bg.on('pointerup', () => { if (!o.fireOnDown) fire(); else c.setScale(1); });
   bg.on('pointerout', () => c.setScale(1));
   return c;
 }
@@ -73,7 +78,9 @@ export function iconButton(scene: Phaser.Scene, icon: string, size: number,
   const bg = scene.add.nineslice(0, 0, t, f, size, size, 30, 30, 30, 30);
   const ic = img(scene, icon).setDisplaySize(size * 0.55, size * 0.55);
   c.add([bg, ic]);
-  bg.setInteractive({ useHandCursor: true });
+  bg.setInteractive(new Phaser.Geom.Rectangle(-size / 2, -size / 2, size, size),
+    Phaser.Geom.Rectangle.Contains);
+  if (bg.input) bg.input.cursor = 'pointer';
   bg.on('pointerdown', () => c.setScale(0.9));
   bg.on('pointerup', () => { c.setScale(1); cb(); });
   bg.on('pointerout', () => c.setScale(1));

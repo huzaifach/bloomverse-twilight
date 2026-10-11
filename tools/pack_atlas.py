@@ -102,8 +102,8 @@ def main():
             bbox = img.getbbox()
             ox, oy = (bbox[0], bbox[1]) if bbox else (0, 0)
             img = img.crop(bbox) if bbox else img
-            png = f"atlas-{group}-{n}.png"
-            img.save(os.path.join(DST, png))
+            webp = f"atlas-{group}-{n}.webp"
+            img.save(os.path.join(DST, webp), "WEBP", quality=85, method=6)
             data = {"frames": {
                 name: {"frame": {"x": f["x"] - ox, "y": f["y"] - oy,
                                  "w": f["w"], "h": f["h"]},
@@ -113,13 +113,13 @@ def main():
                         "sourceSize": {"w": f["w"], "h": f["h"]}}
                 for name, f in frames.items()},
                 "meta": {"app": "bloomverse-packer", "version": "1.0",
-                         "image": png,
+                         "image": webp,
                          "size": {"w": img.size[0], "h": img.size[1]},
                          "scale": "1"}}
             with open(os.path.join(DST, f"atlas-{group}-{n}.json"), "w") as fh:
                 json.dump(data, fh)
             total += len(frames)
-            print(f"{png}: {img.size[0]}x{img.size[1]}, {len(frames)} frames")
+            print(f"{webp}: {img.size[0]}x{img.size[1]}, {len(frames)} frames")
     print("ATLAS_SPRITES", total)
 
 

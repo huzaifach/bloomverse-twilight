@@ -20,9 +20,12 @@ const config: Phaser.Types.Core.GameConfig = {
   parent: 'game',
   backgroundColor: '#12101D',
   scale: {
-    mode: Phaser.Scale.RESIZE,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    // Fixed portrait design canvas: identical layout on every phone.
+    // 420x920 covers 360–420px devices via uniform FIT scaling.
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 420,
+    height: 920,
   },
   render: { antialias: false, pixelArt: false },
   fps: { target: 60, min: 30 },

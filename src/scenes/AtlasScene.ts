@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { audio, coverBg, data, lay, state } from '../ctx.js';
+import { audio, coverBg, data, lay, needBg, state } from '../ctx.js';
+import { attachDebug } from '../debug.js';
 import { F_BODY, F_NUM, F_UI, iconButton, img, Pill, titleText,
          atlasFor } from '../ui.js';
 import { openSettings, plantInfo } from './overlays.js';
@@ -8,21 +9,25 @@ import { navDock } from './navdock.js';
 export class AtlasScene extends Phaser.Scene {
   constructor() { super('atlas'); }
 
+  preload(): void {
+    needBg(this, 'bg-astral-dome');
+  }
+
   create(): void {
     const { w, h, cx } = lay(this);
     coverBg(this, 'bg-astral-dome');
     this.add.rectangle(0, 0, w, h, 0x12101d, 0.35).setOrigin(0);
 
     const s = state(), d = data();
-    const moondew = new Pill(this, 'icon-moondew.png', 210);
-    moondew.setPosition(120, 44);
+    const moondew = new Pill(this, 'icon-moondew.png', 150);
+    moondew.setPosition(83, 42);
     moondew.setValue(s.currencies.moondew);
-    const gear = iconButton(this, 'icon-gear.png', 72, () => {
+    const gear = iconButton(this, 'icon-gear.png', 52, () => {
       audio().play('click');
       openSettings(this, () => undefined);
     });
-    gear.setPosition(w - 52, 44);
-    titleText(this, cx, 44, 'STAR ATLAS', 40);
+    gear.setPosition(w - 30, 42);
+    titleText(this, cx, 102, 'STAR ATLAS', 32);
 
     // entries: 40 plants + 8 hybrids
     const entries: { id: string; name: string; art: string }[] = [];
@@ -88,5 +93,6 @@ export class AtlasScene extends Phaser.Scene {
     this.input.on('pointerup', () => { dragging = false; });
     void h;
     navDock(this, 'atlas');
+    attachDebug(this);
   }
 }

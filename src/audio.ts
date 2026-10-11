@@ -16,6 +16,7 @@ export class AudioMan {
   private ctx: AudioContext | null = null;
   private musicOn = true;
   private sfxOn = true;
+  private bankQueued = false;
 
   constructor(scene: Phaser.Scene) { this.scene = scene; }
 
@@ -24,6 +25,20 @@ export class AudioMan {
       load.audio(k, [`assets/audio/${FILES[k]}.ogg`, `assets/audio/${FILES[k]}.mp3`]);
     load.audio('ambient', ['assets/audio/ambient-night.ogg', 'assets/audio/ambient-night.mp3']);
     load.audio('lullaby', ['assets/audio/lullaby.ogg', 'assets/audio/lullaby.mp3']);
+  }
+
+  /**
+   * Lazy-load the whole audio bank AFTER the first user gesture.
+   * Audio never blocks boot: before this runs, play() falls back to synth.
+   */
+  ensureBank(): void {
+    if (this.bankQueued) return;
+    this.bankQueued = true;
+    try {
+      AudioMan.queueLoader(this.scene.load);
+      this.scene.load.once(Phaser.Loader.Events.COMPLETE, () => this.startAmbient());
+      this.scene.load.start();
+    } catch { /* synth fallback covers everything */ }
   }
 
   unlock(): void {

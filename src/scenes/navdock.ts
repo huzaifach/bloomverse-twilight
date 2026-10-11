@@ -16,7 +16,7 @@ export function navDock(scene: Phaser.Scene, active: NavKey): void {
     ['wings', 'Wings', 'icon-renown.png'],
   ];
   items.forEach(([key, label, icon], i) => {
-    const b = scene.add.container(cx - 195 + i * 130, y).setDepth(10);
+    const b = scene.add.container(cx - 157.5 + i * 105, y).setDepth(10);
     const isA = key === active;
     const bg = scene.add.circle(0, -14, 40, isA ? PALETTE.ember : 0x2a2438, isA ? 1 : 0.85);
     const ic = img(scene, icon).setDisplaySize(52, 52).setPosition(0, -14);

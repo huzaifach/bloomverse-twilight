@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { audio, coverBg, data, lay, state } from '../ctx.js';
+import { audio, coverBg, data, lay, needBg, state } from '../ctx.js';
+import { attachDebug } from '../debug.js';
 import { applyCommand, groveRate, plantTierOf, potsUnlocked } from '../sim.js';
 import { plantById } from '../data.js';
 import { saveGame } from '../save.js';
@@ -15,24 +16,29 @@ export class GroveScene extends Phaser.Scene {
 
   constructor() { super('grove'); }
 
+  preload(): void {
+    needBg(this, 'bg-grove-night');
+  }
+
   create(): void {
     const { w, h, cx } = lay(this);
     coverBg(this, 'bg-grove-night');
     this.add.rectangle(0, 0, w, h, 0x12101d, 0.25).setOrigin(0);
 
-    this.pills = { moondew: new Pill(this, 'icon-moondew.png', 210) };
-    this.pills.moondew.setPosition(120, 44);
-    const gear = iconButton(this, 'icon-gear.png', 72, () => {
+    this.pills = { moondew: new Pill(this, 'icon-moondew.png', 150) };
+    this.pills.moondew.setPosition(83, 42);
+    const gear = iconButton(this, 'icon-gear.png', 52, () => {
       audio().play('click');
       openSettings(this, () => this.refresh());
     });
-    gear.setPosition(w - 52, 44);
-    titleText(this, cx, 44, 'MOONWELL GROVE', 40);
+    gear.setPosition(w - 30, 42);
+    titleText(this, cx, 102, 'MOONWELL GROVE', 32);
 
     this.buildPots(w, h, cx);
     this.buildCollect(w, h, cx);
     this.buildUpgrades(w, h, cx);
     navDock(this, 'grove');
+    attachDebug(this);
     this.refresh();
   }
 
@@ -42,7 +48,7 @@ export class GroveScene extends Phaser.Scene {
     const rows = [5, 3];
     let pot = 0;
     rows.forEach((count, r) => {
-      const y = h * (r === 0 ? 0.60 : 0.42);
+      const y = r === 0 ? 420 : 280;
       const pw = Math.min(w * 0.92, 640) / count;
       for (let c = 0; c < count; c++, pot++) {
         const x = cx - (count - 1) * pw / 2 + c * pw;
@@ -132,15 +138,17 @@ export class GroveScene extends Phaser.Scene {
   }
 
   private buildCollect(w: number, h: number, cx: number): void {
-    const y = h * 0.76;
+    const y = 560;
     this.collectBtn = this.add.container(cx, y).setDepth(5);
     this.collectLabel = this.add.text(0, 0, '', {
-      fontFamily: F_UI, fontSize: '32px', color: '#3A2410', fontStyle: '800',
+      fontFamily: F_UI, fontSize: '30px', color: '#3A2410', fontStyle: '800',
     }).setOrigin(0.5);
     const bg = this.add.nineslice(0, 0, atlasFor('button-amber.png'), 'button-amber.png',
-      420, 92, 40, 40, 40, 40);
+      360, 88, 40, 40, 40, 40);
     this.collectBtn.add([bg, this.collectLabel]);
-    bg.setInteractive({ useHandCursor: true });
+    bg.setInteractive(new Phaser.Geom.Rectangle(-180, -44, 360, 88),
+      Phaser.Geom.Rectangle.Contains);
+    if (bg.input) bg.input.cursor = 'pointer';
     bg.on('pointerup', () => {
       const s = state(), d = data();
       const ev = applyCommand(d, s, { type: 'collectGrove', now: Date.now() });
@@ -157,19 +165,22 @@ export class GroveScene extends Phaser.Scene {
 
   private buildUpgrades(w: number, h: number, cx: number): void {
     const d = data(), s = state();
-    const y0 = h * 0.84;
+    // Compact rows that fit the 420px canvas above the dock.
+    const y0 = 630, rowH = 80;
     const UPGRADE_ICON: Record<string, string> = {
       raincaller: 'charm-raincaller.png', moths: 'moth-moon.png', starpots: 'star-pot.png',
     };
     d.upgrades.forEach((line, i) => {
-      const y = y0 + i * 96;
+      const y = y0 + i * rowH;
       const lvl = s.grove.upgrades[line.id] ?? 0;
-      const ic = img(this, UPGRADE_ICON[line.id] ?? 'star-pot.png').setDisplaySize(56, 56);
-      ic.setPosition(52, y);
-      const nm = this.add.text(90, y, line.name, {
-        fontFamily: F_UI, fontSize: '26px', color: '#F5E6C8', fontStyle: '800',
+      const ic = img(this, UPGRADE_ICON[line.id] ?? 'star-pot.png').setDisplaySize(48, 48);
+      ic.setPosition(38, y);
+      const nm = this.add.text(70, y - 14, line.name, {
+        fontFamily: F_UI, fontSize: '23px', color: '#F5E6C8', fontStyle: '800',
       }).setOrigin(0, 0.5);
-      this.add.existing(levelPips(this, 330, y + 26, lvl, 10));
+      const lv = this.add.text(70, y + 16, `Lv ${lvl}/10`, {
+        fontFamily: F_NUM, fontSize: '19px', color: '#B9A7E6', fontStyle: '700',
+      }).setOrigin(0, 0.5);
       const next = line.levels[lvl];
       if (next) {
         const b = button(this, `${fmt(next.costMoondew)} ☾`, () => {
@@ -179,17 +190,17 @@ export class GroveScene extends Phaser.Scene {
             saveGame(s);
             this.scene.restart();
           } else audio().play('error');
-        }, { w: 170, h: 66, fontSize: 26 });
-        b.setPosition(w - 110, y);
+        }, { w: 140, h: 58, fontSize: 24, fireOnDown: true });
+        b.setPosition(w - 82, y);
       } else {
-        const mx = this.add.text(w - 110, y, 'MAX', {
-          fontFamily: F_UI, fontSize: '26px', color: '#B9A7E6', fontStyle: '800',
+        const mx = this.add.text(w - 82, y, 'MAX', {
+          fontFamily: F_UI, fontSize: '24px', color: '#B9A7E6', fontStyle: '800',
         }).setOrigin(0.5);
         void mx;
       }
-      void nm;
+      void nm; void lv;
     });
-    void cx;
+    void cx; void h;
   }
 
   private refresh(): void {
